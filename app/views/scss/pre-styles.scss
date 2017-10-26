@@ -69,17 +69,16 @@
     } 
 }
 
-@mixin painel {
+
+@mixin painel($item,$nome,$preco) {
+
 
     @include flex;
     @include flex-center;
-    @include painel__item();
 
     margin: 15px;
     margin-bottom: 15px;
-}
 
-@mixin painel__item($item,$nome,$preco) {
     &__item {
         &--item1, &--item2, &--item3 {
             margin: 10px;
@@ -90,11 +89,11 @@
         }
 
         &#{$item} {
-            .--item1__nome {
-                &:before {content:$nome}
+            #{$item}__nome {
+                &::before {content:$nome}
             }
-            .--item__preco {
-                &:before {content:$preco}
+            #{$item}__preco {
+                &::before {content:$preco}
             }
         }
     }
@@ -111,5 +110,4 @@ li { @include display-block;}
 
 img {@include imgs;}
 
-.painel {@include painel;}
 

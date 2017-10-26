@@ -6,5 +6,7 @@
     @include navbar('Leilão do Boi');
 }
 
-
+.painel {
+    @include painel('--item1','Zebu Preto','R$2000,00');
+}
 

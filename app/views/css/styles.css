@@ -16,16 +16,6 @@ img {
   width: 100%;
   height: 100%; }
 
-.painel {
-  display: flex;
-  justify-content: center;
-  margin: 15px;
-  margin-bottom: 15px; }
-  .painel__item--item1, .painel__item--item2, .painel__item--item3 {
-    margin: 10px; }
-    .painel__item--item1 img, .painel__item--item2 img, .painel__item--item3 img {
-      max-width: 300px; }
-
 .navbar {
   display: flex;
   height: 50px;
@@ -47,3 +37,17 @@ img {
     border-color: red; }
     .navbar ul li {
       margin-left: 15px; }
+
+.painel {
+  display: flex;
+  justify-content: center;
+  margin: 15px;
+  margin-bottom: 15px; }
+  .painel__item--item1, .painel__item--item2, .painel__item--item3 {
+    margin: 10px; }
+    .painel__item--item1 img, .painel__item--item2 img, .painel__item--item3 img {
+      max-width: 300px; }
+  .painel__item--item1 --item1__nome::before {
+    content: "Zebu Preto"; }
+  .painel__item--item1 --item1__preco::before {
+    content: "R$2000,00"; }
