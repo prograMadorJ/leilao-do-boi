@@ -6,7 +6,7 @@
     padding: 0;
     box-sizing: border-box;
     list-style: none;
-    // border: solid 1px #ccc;
+    border: solid 1px #ccc;
     font-family: 'Arial';   
 }
 
@@ -73,16 +73,28 @@
 
     @include flex;
     @include flex-center;
+    @include painel__item;
 
     margin: 15px;
     margin-bottom: 15px;
+}
 
+@mixin painel__item($item,$nome,$preco) {
     &__item {
         &--item1, &--item2, &--item3 {
             margin: 10px;
 
             img {
                 max-width: 300px;
+            }
+        }
+
+        &$item {
+            .--item1__nome {
+                &:before {content:$nome}
+            }
+            .--item__preco {
+                &:before {content:$preco}
             }
         }
     }
