@@ -10,7 +10,7 @@ var uglify = require('gulp-uglify');
 
 var gulpIf = require('gulp-if');
 
-var cssnano = require('cssnano');
+var cssnano = require('gulp-cssnano');
 
 var del = require('del');
 
@@ -61,12 +61,9 @@ gulp.task('watch',['browserSync','sass'],function(){
 gulp.task('useref',function(){
     return gulp.src('app/views/*.html')
     .pipe(useref())
-    .pipe(gulpIf('*.js',uglify()))
+    // .pipe(gulpIf('*.js',uglify()))
     .pipe(gulpIf('*.css',cssnano()))
     .pipe(gulp.dest('app/dist'))
-    .pipe(browserSync.reload({
-        stream: true
-    }))
 });
 
 /** Excluir pasta dist */
