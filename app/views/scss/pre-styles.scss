@@ -1,8 +1,8 @@
-// exportar funções sass
+// // exportar funções sass
 
-@mixin navbar($titulo) {
-    @include navbar__titulo($titulo); 
-}
+// @mixin navbar($titulo) {
+//     @include navbar($titulo); 
+// }
 
 //============================================
 
@@ -38,7 +38,7 @@
     height: 100%;
 }
 
-@mixin navbar__titulo($titulo) {
+@mixin navbar($titulo) {
     
     @include flex;
 
