@@ -15,12 +15,12 @@ img {
   width: 100%;
   height: 100%; }
 
-section {
+.painel {
   display: flex;
   justify-content: center;
   margin: 15px;
   margin-bottom: 15px; }
-  section div {
+  .painel__item--item1, .painel__item--item2, .painel__item--item3 {
     margin: 10px; }
-    section div img {
+    .painel__item--item1 img, .painel__item--item2 img, .painel__item--item3 img {
       max-width: 300px; }

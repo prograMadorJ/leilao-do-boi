@@ -1,21 +1,44 @@
-
+// exportar funções sass
 
 @mixin navbar($titulo) {
-    @include estilo-titulo($titulo); 
+    @include navbar__titulo($titulo); 
 }
 
+//============================================
 
+// mixins de estilização
+
+@mixin global {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    border: solid 1px #ccc;
+    font-family: 'Arial';   
+}
 
 @mixin flex {
     display: flex;
 }
 
-
 @mixin flex-center {
     justify-content: center;
 }
 
-@mixin estilo-titulo($titulo) {
+@mixin display-block {
+    display: block;
+}
+
+@mixin imgs {
+
+    @include flex;
+    
+    max-width: 100px;
+    width: 100%;
+    height: 100%;
+}
+
+@mixin navbar__titulo($titulo) {
     
     @include flex;
 
@@ -29,7 +52,7 @@
         color: rgb(245, 238, 238);
         font-size: 1.6em;
         white-space: nowrap;
-        
+
         &::before {
             content: $titulo;
         }
@@ -53,38 +76,7 @@
     } 
 }
 
-@mixin img-itens {
-    max-width: 300px;
-}
-
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    list-style: none;
-    border: solid 1px #ccc;
-    font-family: 'Arial';
-}
-
-li {
-    display: block;
-}
-
-img {
-    
-    @include flex;
-
-    max-width: 100px;
-    width: 100%;
-    height: 100%;
-}
-
-
-
-
-
-section {
+@mixin painel {
 
     @include flex;
     @include flex-center;
@@ -92,11 +84,27 @@ section {
     margin: 15px;
     margin-bottom: 15px;
 
-    div {
-        margin: 10px;
+    &__item {
+        &--item1, &--item2, &--item3 {
+            margin: 10px;
 
-        img {
-            @include img-itens;
+            img {
+                max-width: 300px;
+            }
         }
     }
 }
+
+
+//=========================================
+
+// elementos e classes
+
+* {@include global;}
+
+li { @include display-block;}
+
+img {@include imgs;}
+
+.painel {@include painel;}
+
