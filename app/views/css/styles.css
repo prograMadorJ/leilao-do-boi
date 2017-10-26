@@ -4,7 +4,6 @@
   padding: 0;
   box-sizing: border-box;
   list-style: none;
-  border: solid 1px #ccc;
   font-family: 'Arial'; }
 
 li {
@@ -47,7 +46,11 @@ img {
     margin: 10px; }
     .painel__item--item1 img, .painel__item--item2 img, .painel__item--item3 img {
       max-width: 300px; }
-  .painel__item--item1 --item1__nome::before {
+  .painel .--item1__nome::before {
     content: "Zebu Preto"; }
-  .painel__item--item1 --item1__preco::before {
+  .painel .--item1__preco::before {
     content: "R$2000,00"; }
+  .painel .--item2__nome::before {
+    content: "Boi Forte"; }
+  .painel .--item2__preco::before {
+    content: "R$10000,00"; }

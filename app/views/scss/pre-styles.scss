@@ -6,7 +6,7 @@
     padding: 0;
     box-sizing: border-box;
     list-style: none;
-    border: solid 1px #ccc;
+    // border: solid 1px #ccc;
     font-family: 'Arial';   
 }
 
@@ -70,7 +70,7 @@
 }
 
 
-@mixin painel($item,$nome,$preco) {
+@mixin painel {
 
 
     @include flex;
@@ -87,17 +87,20 @@
                 max-width: 300px;
             }
         }
-
-        &#{$item} {
-            #{$item}__nome {
-                &::before {content:$nome}
-            }
-            #{$item}__preco {
-                &::before {content:$preco}
-            }
-        }
     }
 }
+
+@mixin painel__item($item,$nome,$preco) {
+    // #{$item} {
+        .#{$item}__nome {
+            &::before {content:$nome}
+        }
+        .#{$item}__preco {
+            &::before {content:$preco}
+        }
+    // } 
+}
+
 
 
 //=========================================
