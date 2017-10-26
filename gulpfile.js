@@ -10,7 +10,7 @@ var uglify = require('gulp-uglify');
 
 var gulpIf = require('gulp-if');
 
-var cssnano = require('gulp-cssnano');
+var cssnano = require('cssnano');
 
 var del = require('del');
 

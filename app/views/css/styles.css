@@ -10,7 +10,7 @@
 li {
   display: block; }
 
-nav {
+.navbar {
   display: flex;
   height: 50px;
   align-items: center;
