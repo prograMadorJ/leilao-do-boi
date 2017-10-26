@@ -73,7 +73,7 @@
 
     @include flex;
     @include flex-center;
-    @include painel__item;
+    @include painel__item();
 
     margin: 15px;
     margin-bottom: 15px;
@@ -89,7 +89,7 @@
             }
         }
 
-        &$item {
+        &#{$item} {
             .--item1__nome {
                 &:before {content:$nome}
             }
