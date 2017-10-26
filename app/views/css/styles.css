@@ -54,3 +54,7 @@ img {
     content: "Boi Forte"; }
   .painel .--item2__preco::before {
     content: "R$10000,00"; }
+  .painel .--item3__nome::before {
+    content: "Nelore"; }
+  .painel .--item3__preco::before {
+    content: "R$12000,00"; }

@@ -91,14 +91,12 @@
 }
 
 @mixin painel__item($item,$nome,$preco) {
-    // #{$item} {
-        .#{$item}__nome {
-            &::before {content:$nome}
-        }
-        .#{$item}__preco {
-            &::before {content:$preco}
-        }
-    // } 
+    .#{$item}__nome {
+        &::before {content:$nome}
+    }
+    .#{$item}__preco {
+        &::before {content:$preco}
+    }
 }
 
 

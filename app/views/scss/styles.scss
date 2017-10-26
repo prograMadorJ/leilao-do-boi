@@ -10,5 +10,6 @@
     @include painel;
     @include painel__item('--item1','Zebu Preto','R$2000,00');
     @include painel__item('--item2','Boi Forte','R$10000,00');
+    @include painel__item('--item3','Nelore','R$12000,00');
 }
 
