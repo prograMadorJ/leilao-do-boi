@@ -31,8 +31,12 @@ section {
   align-items: center;
   background: #356e4f;
   padding: 5px; }
-  .navbar__titulo::before {
-    content: "teste"; }
+  .navbar__titulo {
+    color: #f5eeee;
+    font-size: 1.6em;
+    white-space: nowrap; }
+    .navbar__titulo::before {
+      content: "teste"; }
   .navbar .img__logo {
     max-width: 120px; }
   .navbar ul {
@@ -42,7 +46,3 @@ section {
     border-color: red; }
     .navbar ul li {
       margin-left: 15px; }
-      .navbar ul li h1 {
-        color: #f5eeee;
-        font-size: 1.6em;
-        white-space: nowrap; }

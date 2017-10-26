@@ -25,6 +25,10 @@
     padding: 5px;
 
     &__titulo {
+
+        color: rgb(245, 238, 238);
+        font-size: 1.6em;
+        white-space: nowrap;
         
         &::before {
             content: $titulo;
@@ -45,12 +49,6 @@
 
         li {
             margin-left: 15px;
-
-            h1 {
-                color: rgb(245, 238, 238);
-                font-size: 1.6em;
-                white-space: nowrap;
-            }
         }
     } 
 }
