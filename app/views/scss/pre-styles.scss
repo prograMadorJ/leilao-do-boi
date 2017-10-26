@@ -1,4 +1,11 @@
 
+
+@mixin navbar($titulo) {
+    @include estilo-titulo($titulo); 
+}
+
+
+
 @mixin flex {
     display: flex;
 }
@@ -8,10 +15,44 @@
     justify-content: center;
 }
 
-@mixin estilo-titulo {
-    color: rgb(245, 238, 238);
-    font-size: 1.6em;
-    white-space: nowrap;
+@mixin estilo-titulo($titulo) {
+    
+    @include flex;
+
+    height: 50px;
+    align-items: center;
+    background: rgb(53, 110, 79);
+    padding: 5px;
+
+    &__titulo {
+        
+        &::before {
+            content: $titulo;
+        }
+    }
+
+    .img__logo {
+        max-width: 120px;
+    } 
+
+    ul {
+        
+        @include flex;
+        @include flex-center;
+
+        width: 100%;
+        border-color: red;
+
+        li {
+            margin-left: 15px;
+
+            h1 {
+                color: rgb(245, 238, 238);
+                font-size: 1.6em;
+                white-space: nowrap;
+            }
+        }
+    } 
 }
 
 @mixin img-itens {
@@ -42,43 +83,7 @@ img {
 }
 
 
-@mixin navbar($titulo) {
 
-    @include flex;
-
-    height: 50px;
-    align-items: center;
-    background: rgb(53, 110, 79);
-    padding: 5px;
-
-    &__titulo {
-
-        &::before {
-            content: $titulo;
-        }
-    }
-
-    .img_logo {
-        max-width: 120px;
-    }
-
-    ul {
-        
-        @include flex;
-        @include flex-center;
-
-        width: 100%;
-        border-color: red;
-
-        li {
-            margin-left: 15px;
-
-            h1 {
-                @include estilo-titulo;
-            }
-        }
-    }    
-}
 
 
 section {

@@ -33,7 +33,7 @@ section {
   padding: 5px; }
   .navbar__titulo::before {
     content: "teste"; }
-  .navbar .img_logo {
+  .navbar .img__logo {
     max-width: 120px; }
   .navbar ul {
     display: flex;
