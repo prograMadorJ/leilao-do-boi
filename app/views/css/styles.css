@@ -1,4 +1,3 @@
-@charset "UTF-8";
 * {
   margin: 0;
   padding: 0;
@@ -10,35 +9,11 @@
 li {
   display: block; }
 
-.navbar {
-  display: flex;
-  height: 50px;
-  align-items: center;
-  background: #356e4f;
-  padding: 5px; }
-
 img {
   display: flex;
   max-width: 100px;
   width: 100%;
   height: 100%; }
-
-.navbar img {
-  max-width: 120px; }
-
-.navbar ul {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  border-color: red; }
-  .navbar ul li {
-    margin-left: 15px; }
-    .navbar ul li h1 {
-      color: #f5eeee;
-      font-size: 1.6em;
-      white-space: nowrap; }
-    .navbar ul li h1:before {
-      content: 'Leilão do Boi'; }
 
 section {
   display: flex;
@@ -49,3 +24,25 @@ section {
     margin: 10px; }
     section div img {
       max-width: 300px; }
+
+.navbar {
+  display: flex;
+  height: 50px;
+  align-items: center;
+  background: #356e4f;
+  padding: 5px; }
+  .navbar__titulo::before {
+    content: "teste"; }
+  .navbar .img_logo {
+    max-width: 120px; }
+  .navbar ul {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    border-color: red; }
+    .navbar ul li {
+      margin-left: 15px; }
+      .navbar ul li h1 {
+        color: #f5eeee;
+        font-size: 1.6em;
+        white-space: nowrap; }
