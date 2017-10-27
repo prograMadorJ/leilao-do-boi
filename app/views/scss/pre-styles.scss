@@ -15,6 +15,10 @@
     justify-content: center;
 }
 
+@mixin flex-right {
+    justify-content: flex-end;
+}
+
 @mixin display-block {
     display: block;
 }
@@ -28,9 +32,8 @@
 @mixin navbar($titulo) {
     @include flex;
     height: 50px;
-    align-items: center;
-    // background: rgb(53, 110, 79);
-    background:#00413d;
+    align-items: center; // background: rgb(53, 110, 79);
+    background: #00413d;
     padding: 5px;
     &__titulo {
         color: rgb(245, 238, 238);
@@ -42,7 +45,7 @@
     }
     .img__logo {
         max-width: 120px;
-            }
+    }
     ul {
         @include flex;
         @include flex-center;
@@ -51,22 +54,18 @@
     }
 }
 
+.bar-opcoes {
+    @include flex;
+    @include flex-right;
+    .lista::after {
+        content: '\2683';
+    }
+    
+}
+
 @mixin painel {
     @include flex;
     @include flex-center;
-
-
-    .bar-opcoes {
-        .lista::after {
-            content: ' \2507';
-        }
-    }
-
-
-
-
-
-
     &__item {
         &1,
         &2,
@@ -79,7 +78,6 @@
                 min-height: 60px;
                 border-radius: 3px;
             }
-
             label {
                 @include flex;
                 @include flex-center;

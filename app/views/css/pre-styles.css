@@ -1,3 +1,9 @@
+.bar-opcoes {
+  display: flex;
+  justify-content: flex-end; }
+  .bar-opcoes .lista::after {
+    content: '\2683'; }
+
 * {
   margin: 0;
   padding: 0;

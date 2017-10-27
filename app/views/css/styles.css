@@ -1,4 +1,10 @@
 @charset "UTF-8";
+.bar-opcoes {
+  display: flex;
+  justify-content: flex-end; }
+  .bar-opcoes .lista::after {
+    content: '\2683'; }
+
 * {
   margin: 0;
   padding: 0;
@@ -37,8 +43,6 @@ img {
 .painel {
   display: flex;
   justify-content: center; }
-  .painel .bar-opcoes .lista::after {
-    content: ' \2507'; }
   .painel__item1, .painel__item2, .painel__item3 {
     padding: 5px;
     border-radius: 3px; }
