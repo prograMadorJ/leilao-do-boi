@@ -24,7 +24,7 @@ img {
     color: #f5eeee;
     font-size: 1.6em;
     white-space: nowrap; }
-    .navbar__titulo::before {
+    .navbar__titulo::after {
       content: "Leilão do Boi"; }
   .navbar .img__logo {
     max-width: 120px; }
@@ -48,25 +48,25 @@ img {
       max-width: 300px; }
   .painel .item1__descricao--nome {
     font-size: 0.8em; }
-    .painel .item1__descricao--nome::before {
+    .painel .item1__descricao--nome::after {
       content: "Zebu Preto"; }
   .painel .item1__descricao--preco {
     font-size: 0.8em; }
-    .painel .item1__descricao--preco::before {
+    .painel .item1__descricao--preco::after {
       content: "R$2000,00"; }
   .painel .item2__descricao--nome {
     font-size: 0.8em; }
-    .painel .item2__descricao--nome::before {
+    .painel .item2__descricao--nome::after {
       content: "Boi Forte"; }
   .painel .item2__descricao--preco {
     font-size: 0.8em; }
-    .painel .item2__descricao--preco::before {
+    .painel .item2__descricao--preco::after {
       content: "R$10000,00"; }
   .painel .item3__descricao--nome {
     font-size: 0.8em; }
-    .painel .item3__descricao--nome::before {
+    .painel .item3__descricao--nome::after {
       content: "Nelore"; }
   .painel .item3__descricao--preco {
     font-size: 0.8em; }
-    .painel .item3__descricao--preco::before {
+    .painel .item3__descricao--preco::after {
       content: "R$12000,00"; }

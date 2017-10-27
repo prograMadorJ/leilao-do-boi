@@ -45,7 +45,7 @@
         font-size: 1.6em;
         white-space: nowrap;
 
-        &::before {
+        &::after {
             content: $titulo;
         }
     }
@@ -93,11 +93,11 @@
 @mixin painel__item($item,$nome,$preco) {
     .#{$item}__descricao--nome {
         font-size: 0.8em;
-        &::before {content:$nome}
+        &::after {content:$nome}
     }
     .#{$item}__descricao--preco {
         font-size: 0.8em;
-        &::before {content:$preco}
+        &::after {content:$preco}
     }
 }
 
