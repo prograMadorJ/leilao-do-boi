@@ -1,3 +1,10 @@
+// elementos globais
+
+* {@include global;}
+
+li { @include display-block;}
+
+img {@include imgs;}
 
 // mixins de estilização
 
@@ -98,11 +105,9 @@
                 margin-right: 5px;
                 white-space: nowrap;
             }
-            
         }
     }
 }
-
 
 @mixin painel__item($item,$nome,$preco,$lance) {
 
@@ -110,35 +115,19 @@
     // pois esta função é chamada mais de uma vez e isso fará
     // com que este seja repetido varias vezes
 
-    .estilo-texto-lance {
-        font-size: 0.6em;
-    }
-
     .#{$item}__descricao--nome {
         &::after {content:$nome;}
     }
     .#{$item}__descricao--preco {
         &::after {content:$preco;}
     }
-
     .#{$item}__descricao--lance {
-        @extend .estilo-texto-lance;
+        @extend %estilo-texto-lance;
         &::after {content:$lance;}
     }
 }
 
-
-
-//=========================================
-
-// elementos e classes
-
-* {@include global;}
-
-li { @include display-block;}
-
-img {@include imgs;}
-
-
-
+%estilo-texto-lance {
+    font-size: 0.6em;
+}
 
