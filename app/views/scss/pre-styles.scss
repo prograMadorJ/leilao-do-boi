@@ -82,9 +82,12 @@
         &--item1, &--item2, &--item3 {
             margin: 10px;
             border: solid 1px #bbb;
+            border-radius: 3px;
 
             img {
                 max-width: 300px;
+                min-width: 86px;
+                min-height: 60px;
             }
 
             label {

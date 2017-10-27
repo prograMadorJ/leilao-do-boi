@@ -43,9 +43,12 @@ img {
   margin-bottom: 15px; }
   .painel__item--item1, .painel__item--item2, .painel__item--item3 {
     margin: 10px;
-    border: solid 1px #bbb; }
+    border: solid 1px #bbb;
+    border-radius: 3px; }
     .painel__item--item1 img, .painel__item--item2 img, .painel__item--item3 img {
-      max-width: 300px; }
+      max-width: 300px;
+      min-width: 86px;
+      min-height: 60px; }
     .painel__item--item1 label, .painel__item--item2 label, .painel__item--item3 label {
       display: flex;
       justify-content: center;
