@@ -12,8 +12,7 @@ li {
 img {
   display: flex;
   max-width: 100px;
-  width: 100%;
-  height: 100%; }
+  width: 100%; }
 
 .navbar {
   display: flex;
@@ -43,18 +42,31 @@ img {
   margin: 15px;
   margin-bottom: 15px; }
   .painel__item--item1, .painel__item--item2, .painel__item--item3 {
-    margin: 10px; }
+    margin: 10px;
+    border: solid 1px #bbb; }
     .painel__item--item1 img, .painel__item--item2 img, .painel__item--item3 img {
       max-width: 300px; }
-  .painel .--item1__nome::before {
-    content: "Zebu Preto"; }
-  .painel .--item1__preco::before {
-    content: "R$2000,00"; }
-  .painel .--item2__nome::before {
-    content: "Boi Forte"; }
-  .painel .--item2__preco::before {
-    content: "R$10000,00"; }
-  .painel .--item3__nome::before {
-    content: "Nelore"; }
-  .painel .--item3__preco::before {
-    content: "R$12000,00"; }
+  .painel .item1__descricao--nome {
+    font-size: 0.8em; }
+    .painel .item1__descricao--nome::before {
+      content: "Zebu Preto"; }
+  .painel .item1__descricao--preco {
+    font-size: 0.8em; }
+    .painel .item1__descricao--preco::before {
+      content: "R$2000,00"; }
+  .painel .item2__descricao--nome {
+    font-size: 0.8em; }
+    .painel .item2__descricao--nome::before {
+      content: "Boi Forte"; }
+  .painel .item2__descricao--preco {
+    font-size: 0.8em; }
+    .painel .item2__descricao--preco::before {
+      content: "R$10000,00"; }
+  .painel .item3__descricao--nome {
+    font-size: 0.8em; }
+    .painel .item3__descricao--nome::before {
+      content: "Nelore"; }
+  .painel .item3__descricao--preco {
+    font-size: 0.8em; }
+    .painel .item3__descricao--preco::before {
+      content: "R$12000,00"; }

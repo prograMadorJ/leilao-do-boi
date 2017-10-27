@@ -28,7 +28,6 @@
     
     max-width: 100px;
     width: 100%;
-    height: 100%;
 }
 
 @mixin navbar($titulo) {
@@ -82,6 +81,7 @@
     &__item {
         &--item1, &--item2, &--item3 {
             margin: 10px;
+            border: solid 1px #bbb;
 
             img {
                 max-width: 300px;
@@ -91,10 +91,12 @@
 }
 
 @mixin painel__item($item,$nome,$preco) {
-    .#{$item}__nome {
+    .#{$item}__descricao--nome {
+        font-size: 0.8em;
         &::before {content:$nome}
     }
-    .#{$item}__preco {
+    .#{$item}__descricao--preco {
+        font-size: 0.8em;
         &::before {content:$preco}
     }
 }
@@ -110,5 +112,6 @@
 li { @include display-block;}
 
 img {@include imgs;}
+
 
 
