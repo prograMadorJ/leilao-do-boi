@@ -43,7 +43,6 @@
         color: rgb(245, 238, 238);
         font-size: 1.6em;
         white-space: nowrap;
-        margin-right: 1em;
 
         &::after {
             content: $titulo;
@@ -61,10 +60,6 @@
 
         width: 100%;
         border-color: red;
-
-        li {
-            margin-left: 15px;
-        }
     } 
 }
 
@@ -75,12 +70,10 @@
     @include flex;
     @include flex-center;
 
-    margin: 15px;
-    margin-bottom: 15px;
 
     &__item {
         &--item1, &--item2, &--item3 {
-            margin: 10px;
+            padding: 5px;
             // border: solid 1px #bbb;
             border-radius: 3px;
 
@@ -103,7 +96,7 @@
     }
 }
 
-@mixin painel__item($item,$nome,$preco,$lance) {
+@mixin painel__item($item,$nome,$preco,$detalhe) {
 
     // não usar estilos diretos aqui ex.: display: block;
     // pois esta função é chamada mais de uma vez e isso fará
@@ -114,14 +107,17 @@
     }
 
     .#{$item}__descricao--nome {
+        font-weight: bold;
+        color: rgb(66, 66, 66);
         &::after {content:$nome;}
     }
     .#{$item}__descricao--preco {
         &::after {content:$preco;}
     }
-    .#{$item}__descricao--lance {
+    .#{$item}__descricao--detalhe {
         font-size: 0.6em;
-        &::after {content:$lance;}
+        color: mediumblue;
+        &::after {content:$detalhe;}
     }
 }
 
