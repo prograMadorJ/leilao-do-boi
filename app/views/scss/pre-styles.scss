@@ -1,11 +1,3 @@
-// elementos globais
-
-* {@include global;}
-
-li { @include display-block;}
-
-img {@include imgs;}
-
 // mixins de estilização
 
 @mixin global {
@@ -51,6 +43,7 @@ img {@include imgs;}
         color: rgb(245, 238, 238);
         font-size: 1.6em;
         white-space: nowrap;
+        margin-right: 1em;
 
         &::after {
             content: $titulo;
@@ -88,13 +81,14 @@ img {@include imgs;}
     &__item {
         &--item1, &--item2, &--item3 {
             margin: 10px;
-            border: solid 1px #bbb;
+            // border: solid 1px #bbb;
             border-radius: 3px;
 
             img {
                 max-width: 300px;
                 min-width: 86px;
                 min-height: 60px;
+                border-radius: 3px;
             }
 
             label {
@@ -115,6 +109,10 @@ img {@include imgs;}
     // pois esta função é chamada mais de uma vez e isso fará
     // com que este seja repetido varias vezes
 
+    .#{$item}__descricao {
+        padding: 5px;
+    }
+
     .#{$item}__descricao--nome {
         &::after {content:$nome;}
     }
@@ -122,12 +120,16 @@ img {@include imgs;}
         &::after {content:$preco;}
     }
     .#{$item}__descricao--lance {
-        @extend %estilo-texto-lance;
+        font-size: 0.6em;
         &::after {content:$lance;}
     }
 }
 
-%estilo-texto-lance {
-    font-size: 0.6em;
-}
+// elementos globais
+
+* {@include global;}
+
+li {@include display-block;}
+
+img {@include imgs;}
 

@@ -14,9 +14,6 @@ img {
   max-width: 100px;
   width: 100%; }
 
-.painel .item1__descricao--lance, .painel .item2__descricao--lance, .painel .item3__descricao--lance {
-  font-size: 0.6em; }
-
 .navbar {
   display: flex;
   height: 50px;
@@ -26,7 +23,8 @@ img {
   .navbar__titulo {
     color: #f5eeee;
     font-size: 1.6em;
-    white-space: nowrap; }
+    white-space: nowrap;
+    margin-right: 1em; }
     .navbar__titulo::after {
       content: "Leilão do Boi"; }
   .navbar .img__logo {
@@ -46,12 +44,12 @@ img {
   margin-bottom: 15px; }
   .painel__item--item1, .painel__item--item2, .painel__item--item3 {
     margin: 10px;
-    border: solid 1px #bbb;
     border-radius: 3px; }
     .painel__item--item1 img, .painel__item--item2 img, .painel__item--item3 img {
       max-width: 300px;
       min-width: 86px;
-      min-height: 60px; }
+      min-height: 60px;
+      border-radius: 3px; }
     .painel__item--item1 label, .painel__item--item2 label, .painel__item--item3 label {
       display: flex;
       justify-content: center;
@@ -59,21 +57,33 @@ img {
       margin-left: 5px;
       margin-right: 5px;
       white-space: nowrap; }
+  .painel .item1__descricao {
+    padding: 5px; }
   .painel .item1__descricao--nome::after {
     content: "Zebu Preto"; }
   .painel .item1__descricao--preco::after {
     content: "R$2.000,00"; }
-  .painel .item1__descricao--lance::after {
-    content: "dar um lance"; }
+  .painel .item1__descricao--lance {
+    font-size: 0.6em; }
+    .painel .item1__descricao--lance::after {
+      content: "dar um lance"; }
+  .painel .item2__descricao {
+    padding: 5px; }
   .painel .item2__descricao--nome::after {
     content: "Boi Forte"; }
   .painel .item2__descricao--preco::after {
     content: "R$10.000,00"; }
-  .painel .item2__descricao--lance::after {
-    content: "dar um lance"; }
+  .painel .item2__descricao--lance {
+    font-size: 0.6em; }
+    .painel .item2__descricao--lance::after {
+      content: "dar um lance"; }
+  .painel .item3__descricao {
+    padding: 5px; }
   .painel .item3__descricao--nome::after {
     content: "Nelore"; }
   .painel .item3__descricao--preco::after {
     content: "R$12.000,00"; }
-  .painel .item3__descricao--lance::after {
-    content: "dar um lance"; }
+  .painel .item3__descricao--lance {
+    font-size: 0.6em; }
+    .painel .item3__descricao--lance::after {
+      content: "dar um lance"; }
