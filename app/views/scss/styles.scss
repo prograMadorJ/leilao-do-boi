@@ -9,9 +9,9 @@
 .painel {
     $texto: 'ver detalhes';
     @include painel;
-    @include painel__item('item1','Zebu Preto','R$2.000,00',$texto);
-    @include painel__item('item2','Boi Forte','R$10.000,00',$texto);
-    @include painel__item('item3','Nelore','R$12.000,00',$texto);
+    @include painel__item('Zebu Preto','R$2.000,00',$texto);
+    @include painel__item('Boi Forte','R$10.000,00',$texto);
+    @include painel__item('Nelore','R$12.000,00',$texto);
 }
 
 

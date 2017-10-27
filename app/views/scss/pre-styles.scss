@@ -96,13 +96,13 @@
     }
 }
 
-@mixin painel__item($item,$nome,$preco,$detalhe) {
+@mixin painel__item($nome,$preco,$detalhe) {
 
     // não usar estilos diretos aqui ex.: display: block;
     // pois esta função é chamada mais de uma vez e isso fará
     // com que este seja repetido varias vezes
 
-    .#{$item}__descricao {
+    .descricao {
         padding: 5px;
     }
 
