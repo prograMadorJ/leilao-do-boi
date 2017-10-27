@@ -72,7 +72,7 @@
 
 
     &__item {
-        &--item1, &--item2, &--item3 {
+        &1, &2, &3 {
             padding: 5px;
             // border: solid 1px #bbb;
             border-radius: 3px;
@@ -106,15 +106,15 @@
         padding: 5px;
     }
 
-    .#{$item}__descricao--nome {
+    .descricao__nome {
         font-weight: bold;
         color: rgb(66, 66, 66);
         &::after {content:$nome;}
     }
-    .#{$item}__descricao--preco {
+    .descricao__preco {
         &::after {content:$preco;}
     }
-    .#{$item}__descricao--detalhe {
+    .descricao__detalhe {
         font-size: 0.6em;
         color: mediumblue;
         &::after {content:$detalhe;}

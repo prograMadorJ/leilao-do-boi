@@ -37,15 +37,15 @@ img {
 .painel {
   display: flex;
   justify-content: center; }
-  .painel__item--item1, .painel__item--item2, .painel__item--item3 {
+  .painel__item1, .painel__item2, .painel__item3 {
     padding: 5px;
     border-radius: 3px; }
-    .painel__item--item1 img, .painel__item--item2 img, .painel__item--item3 img {
+    .painel__item1 img, .painel__item2 img, .painel__item3 img {
       max-width: 300px;
       min-width: 86px;
       min-height: 60px;
       border-radius: 3px; }
-    .painel__item--item1 label, .painel__item--item2 label, .painel__item--item3 label {
+    .painel__item1 label, .painel__item2 label, .painel__item3 label {
       display: flex;
       justify-content: center;
       font-size: 0.8em;
@@ -54,43 +54,43 @@ img {
       white-space: nowrap; }
   .painel .item1__descricao {
     padding: 5px; }
-  .painel .item1__descricao--nome {
+  .painel .descricao__nome {
     font-weight: bold;
     color: #424242; }
-    .painel .item1__descricao--nome::after {
+    .painel .descricao__nome::after {
       content: "Zebu Preto"; }
-  .painel .item1__descricao--preco::after {
+  .painel .descricao__preco::after {
     content: "R$2.000,00"; }
-  .painel .item1__descricao--detalhe {
+  .painel .descricao__detalhe {
     font-size: 0.6em;
     color: mediumblue; }
-    .painel .item1__descricao--detalhe::after {
+    .painel .descricao__detalhe::after {
       content: "ver detalhes"; }
   .painel .item2__descricao {
     padding: 5px; }
-  .painel .item2__descricao--nome {
+  .painel .descricao__nome {
     font-weight: bold;
     color: #424242; }
-    .painel .item2__descricao--nome::after {
+    .painel .descricao__nome::after {
       content: "Boi Forte"; }
-  .painel .item2__descricao--preco::after {
+  .painel .descricao__preco::after {
     content: "R$10.000,00"; }
-  .painel .item2__descricao--detalhe {
+  .painel .descricao__detalhe {
     font-size: 0.6em;
     color: mediumblue; }
-    .painel .item2__descricao--detalhe::after {
+    .painel .descricao__detalhe::after {
       content: "ver detalhes"; }
   .painel .item3__descricao {
     padding: 5px; }
-  .painel .item3__descricao--nome {
+  .painel .descricao__nome {
     font-weight: bold;
     color: #424242; }
-    .painel .item3__descricao--nome::after {
+    .painel .descricao__nome::after {
       content: "Nelore"; }
-  .painel .item3__descricao--preco::after {
+  .painel .descricao__preco::after {
     content: "R$12.000,00"; }
-  .painel .item3__descricao--detalhe {
+  .painel .descricao__detalhe {
     font-size: 0.6em;
     color: mediumblue; }
-    .painel .item3__descricao--detalhe::after {
+    .painel .descricao__detalhe::after {
       content: "ver detalhes"; }
