@@ -5,6 +5,7 @@
     box-sizing: border-box;
     list-style: none; // border: solid 1px #ccc;
     font-family: 'Arial';
+    text-decoration: none;
 }
 
 @mixin flex {
@@ -134,3 +135,4 @@ li {
 img {
     @include imgs;
 }
+
