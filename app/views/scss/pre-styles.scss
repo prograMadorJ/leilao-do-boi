@@ -29,7 +29,8 @@
     @include flex;
     height: 50px;
     align-items: center;
-    background: rgb(53, 110, 79);
+    // background: rgb(53, 110, 79);
+    background:#00413d;
     padding: 5px;
     &__titulo {
         color: rgb(245, 238, 238);
@@ -53,7 +54,6 @@
 @mixin painel {
     @include flex;
     @include flex-center;
-
     &__item {
         &1,
         &2,
@@ -76,7 +76,6 @@
             }
         }
     }
-    
     .descricao {
         padding: 5px;
         &__nome {
