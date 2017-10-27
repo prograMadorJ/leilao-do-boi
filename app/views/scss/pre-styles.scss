@@ -42,7 +42,7 @@
     }
     .img__logo {
         max-width: 120px;
-    }
+            }
     ul {
         @include flex;
         @include flex-center;
@@ -54,6 +54,19 @@
 @mixin painel {
     @include flex;
     @include flex-center;
+
+
+    .bar-opcoes {
+        .lista::after {
+            content: ' \2507';
+        }
+    }
+
+
+
+
+
+
     &__item {
         &1,
         &2,
@@ -66,6 +79,7 @@
                 min-height: 60px;
                 border-radius: 3px;
             }
+
             label {
                 @include flex;
                 @include flex-center;
@@ -94,8 +108,6 @@
     // pois esta função é chamada mais de uma vez e isso fará
     // com que este seja repetido varias vezes
     .descricao__nome {
-        // font-weight: bold;
-        // color: rgb(66, 66, 66);
         &::after {
             content: $nome;
         }
@@ -106,8 +118,6 @@
         }
     }
     .descricao__detalhe {
-        // font-size: 0.6em;
-        // color: mediumblue;
         &::after {
             content: $detalhe;
         }
