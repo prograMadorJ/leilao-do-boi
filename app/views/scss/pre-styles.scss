@@ -28,14 +28,18 @@
     @include flex;
     max-width: 100px;
     width: 100%;
+    transition: all .4s ease;
 }
 
 @mixin navbar($titulo) {
     @include flex;
     height: 50px;
+    width: 100%;
     align-items: center; // background: rgb(53, 110, 79);
     background: #00413d;
     padding: 5px;
+    position: fixed;
+    z-index: 2;
     &__titulo {
         color: rgb(245, 238, 238);
         font-size: 1.6em;
@@ -55,10 +59,18 @@
     }
 }
 
+.painel__grupo {
+    position: relative;
+    top:80px;
+}
+
 .bar-opcoes {
     @include flex;
     @include flex-right;
     background: #bbb;
+    position: fixed;
+    width: 100%;
+    top:50px;
     label {
         color: #3d3c3c;
         font-size: 1.3em;
@@ -86,11 +98,12 @@
 @mixin painel {
     @include flex;
     @include flex-center;
+    padding-top: 10px;
     &__item {
         &1,
         &2,
         &3 {
-            padding: 5px; // border: solid 1px #bbb;
+            padding: 5px;
             border-radius: 3px;
             img {
                 max-width: 300px;
@@ -109,7 +122,6 @@
         }
     }
     .descricao {
-        padding: 5px;
         &__nome {
             font-weight: bold;
             color: rgb(66, 66, 66);
@@ -208,10 +220,10 @@ input[type=checkbox] {
 	-moz-border-radius: 50px;
 	border-radius: 50px;
 
-	-webkit-transition: all .4s ease;
-	-moz-transition: all .4s ease;
-	-o-transition: all .4s ease;
-	-ms-transition: all .4s ease;
+	// -webkit-transition: all .4s ease;
+	// -moz-transition: all .4s ease;
+	// -o-transition: all .4s ease;
+	// -ms-transition: all .4s ease;
 	transition: all .4s ease;
 	cursor: pointer;
 	position: absolute;
@@ -232,15 +244,15 @@ input[type=checkbox] {
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcfff4', endColorstr='#b3bead',GradientType=0 );
 }
 
-#slideThree:checked ~ .bar-opcoes .slideThree .e { // label {
+#slideThree:checked ~ .navbar .slideThree .e { // label {
     left: 20px; 
 }
 
-#slideThree:checked ~ .painel { // label {
-    display: block;
+#slideThree:checked ~ .painel__grupo .painel { // label {
+    display: block; 
 }
 
-#slideThree:checked ~ .bar-opcoes .slideThree:before {
+#slideThree:checked ~ .navbar .slideThree:before {
     content: 'visão: \2680';
 }
 

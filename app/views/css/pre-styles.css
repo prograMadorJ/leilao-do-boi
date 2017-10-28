@@ -1,8 +1,15 @@
 @charset "UTF-8";
+.painel__grupo {
+  position: relative;
+  top: 80px; }
+
 .bar-opcoes {
   display: flex;
   justify-content: flex-end;
-  background: #bbb; }
+  background: #bbb;
+  position: fixed;
+  width: 100%;
+  top: 50px; }
   .bar-opcoes label {
     color: #3d3c3c;
     font-size: 1.3em;
@@ -34,7 +41,8 @@ li {
 img {
   display: flex;
   max-width: 100px;
-  width: 100%; }
+  width: 100%;
+  transition: all .4s ease; }
 
 /* SLIDE THREE */
 input[type=checkbox] {
@@ -78,10 +86,6 @@ input[type=checkbox] {
   -webkit-border-radius: 50px;
   -moz-border-radius: 50px;
   border-radius: 50px;
-  -webkit-transition: all .4s ease;
-  -moz-transition: all .4s ease;
-  -o-transition: all .4s ease;
-  -ms-transition: all .4s ease;
   transition: all .4s ease;
   cursor: pointer;
   position: absolute;
@@ -99,11 +103,11 @@ input[type=checkbox] {
   background: linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcfff4', endColorstr='#b3bead',GradientType=0 ); }
 
-#slideThree:checked ~ .bar-opcoes .slideThree .e {
+#slideThree:checked ~ .navbar .slideThree .e {
   left: 20px; }
 
-#slideThree:checked ~ .painel {
+#slideThree:checked ~ .painel__grupo .painel {
   display: block; }
 
-#slideThree:checked ~ .bar-opcoes .slideThree:before {
+#slideThree:checked ~ .navbar .slideThree:before {
   content: 'visão: \2680'; }
