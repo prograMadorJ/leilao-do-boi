@@ -118,7 +118,6 @@ input[type=checkbox] {
   width: 100%;
   align-items: center;
   background: #00413d;
-  padding: 5px;
   position: fixed;
   z-index: 2; }
   .navbar__titulo {
