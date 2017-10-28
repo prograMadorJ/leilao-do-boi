@@ -53,7 +53,6 @@ input[type=checkbox] {
   width: 40px;
   height: 20px;
   background: #333;
-  line-height: 1.4;
   -webkit-border-radius: 50px;
   -moz-border-radius: 50px;
   border-radius: 50px;
@@ -73,9 +72,11 @@ input[type=checkbox] {
 
 .slideThree:before {
   content: 'visão: \2683';
+  font: 15px/20px Arial, sans-serif;
   color: #353c35;
   position: absolute;
-  left: -70px;
+  left: -65px;
+  line-height: 1.4em;
   z-index: 0;
   font-weight: bold; }
 

@@ -105,10 +105,11 @@
             padding: 5px;
             border-radius: 3px;
             img {
-                max-width: 300px;
+                max-width: 500px;
                 min-width: 86px;
                 min-height: 60px;
                 border-radius: 3px;
+                margin: 5px auto;
             }
             label {
                 @include flex;
@@ -176,7 +177,6 @@ input[type=checkbox] {
 	width: 40px;
 	height: 20px;
     background: #333;
-    line-height: 1.4;
 	// margin: 20px auto;
 
 	-webkit-border-radius: 50px;
@@ -202,9 +202,11 @@ input[type=checkbox] {
 
 .slideThree:before {
     content: 'visão: \2683';
+    font: 15px/20px Arial, sans-serif;
     color: #353c35;
     position: absolute;
-    left: -70px;
+    left: -65px;
+    line-height: 1.4em;
     z-index: 0;
     font-weight: bold;
     
