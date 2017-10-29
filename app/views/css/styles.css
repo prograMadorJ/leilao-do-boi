@@ -125,8 +125,6 @@ input[type=checkbox] {
     color: #f5eeee;
     font-size: 1.6em;
     white-space: nowrap; }
-    .navbar__titulo::after {
-      content: "Leilão do Boi"; }
   .navbar .img__logo {
     max-width: 120px; }
   .navbar ul {
@@ -162,19 +160,19 @@ input[type=checkbox] {
     font-size: 0.6em;
     color: mediumblue; }
   .painel .descricao__nome::after {
-    content: "Zebu Preto"; }
+    content: ''; }
   .painel .descricao__preco::after {
     content: "R$2.000,00"; }
   .painel .descricao__detalhe::after {
     content: "ver detalhes"; }
   .painel .descricao__nome::after {
-    content: "Boi Forte"; }
+    content: ''; }
   .painel .descricao__preco::after {
     content: "R$10.000,00"; }
   .painel .descricao__detalhe::after {
     content: "ver detalhes"; }
   .painel .descricao__nome::after {
-    content: "Nelore"; }
+    content: ''; }
   .painel .descricao__preco::after {
     content: "R$12.000,00"; }
   .painel .descricao__detalhe::after {

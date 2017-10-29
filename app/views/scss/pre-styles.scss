@@ -43,9 +43,9 @@
         color: rgb(245, 238, 238);
         font-size: 1.6em;
         white-space: nowrap;
-        &::after {
-            content: $titulo;
-        }
+        // &::after {
+        //     content: $titulo;
+        // }
     }
     .img__logo {
         max-width: 120px;
@@ -139,7 +139,7 @@
     // com que este seja repetido varias vezes
     .descricao__nome {
         &::after {
-            content: $nome;
+            content: '';//$nome;
         }
     }
     .descricao__preco {

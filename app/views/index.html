@@ -10,18 +10,36 @@
     <link rel="stylesheet" href="css/pre-styles.css">
     <!--endbuild-->
     <script type="text/javascript">
-        
-        
 
-            var doc = document.getElementById('titulo').value;
-            alert(doc);
+        function conteudo(classe,conteudo) {
+            document.querySelector(classe).innerHTML = conteudo;
+        }
 
 
-//         document.getElementsByClassName("navbar").addEventListener("click", function(){
-//             alert(doc);
-// });
+        window.onload = function() {
+            var itens = {
+                item1: {
+                    nome:'Zebu Preto',
+                    preco:'R$5.000,00'
+                },
+                item2: {
+                    nome: 'Boi Forte',
+                    preco: 'R$15.000,00'
+                },
+                item3: {
+                    nome: 'Nelore',
+                    preco: 'R$12.000,00'
+                }
+            }
+
+            conteudo(
+                '.navbar__titulo',
+                'Teste'
+            );
+        }
+
     </script>
-    <title id="titulo">Document</title>
+    <title>Document</title>
 </head>
 
 <body>
@@ -33,7 +51,7 @@
             <ul>
                 <li>
                     <h1 class="navbar__titulo">
-                         a<!-- Titulo -->
+                         <!-- Titulo -->
                     </h1>
                 </li>
             </ul>
