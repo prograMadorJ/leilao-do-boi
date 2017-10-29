@@ -15,27 +15,48 @@
             document.querySelector(classe).innerHTML = conteudo;
         }
 
+        function conteudos(classe,conteudo) {
+            var e = document.querySelectorAll(classe);
+            e.forEach(function(element,index) {
+                element.innerHTML = conteudo;
+            }, this);
+        }
 
         window.onload = function() {
-            var itens = {
-                item1: {
-                    nome:'Zebu Preto',
-                    preco:'R$5.000,00'
-                },
-                item2: {
-                    nome: 'Boi Forte',
-                    preco: 'R$15.000,00'
-                },
-                item3: {
-                    nome: 'Nelore',
-                    preco: 'R$12.000,00'
-                }
-            }
 
             conteudo(
                 '.navbar__titulo',
                 'Teste'
             );
+
+            var itens = [
+                {
+                    nome:'Zebu Preto',
+                    preco:'R$5.000,00'
+                },
+                {
+                    nome: 'Boi Forte',
+                    preco: 'R$15.000,00'
+                },
+                {
+                    nome: 'Nelore',
+                    preco: 'R$12.000,00'
+                }
+            ]
+
+            itens.forEach(function(item,i){
+                i+=1;
+                conteudos('.painel__item'+[i]+' .descricao__nome',
+                    item.nome
+                );
+                conteudos('.painel__item'+[i]+' .descricao__preco',
+                    item.preco
+                );
+                conteudos(
+                    '.painel__item'+[i]+' .descricao__detalhe',
+                    'ver detalhes'
+                ); 
+            });
         }
 
     </script>

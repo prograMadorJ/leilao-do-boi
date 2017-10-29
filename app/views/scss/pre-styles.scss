@@ -144,12 +144,12 @@
     }
     .descricao__preco {
         &::after {
-            content: $preco;
+            content: '';//$preco;
         }
     }
     .descricao__detalhe {
         &::after {
-            content: $detalhe;
+            content: '';//$detalhe;
         }
     }
 }

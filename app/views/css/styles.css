@@ -162,18 +162,18 @@ input[type=checkbox] {
   .painel .descricao__nome::after {
     content: ''; }
   .painel .descricao__preco::after {
-    content: "R$2.000,00"; }
+    content: ''; }
   .painel .descricao__detalhe::after {
-    content: "ver detalhes"; }
+    content: ''; }
   .painel .descricao__nome::after {
     content: ''; }
   .painel .descricao__preco::after {
-    content: "R$10.000,00"; }
+    content: ''; }
   .painel .descricao__detalhe::after {
-    content: "ver detalhes"; }
+    content: ''; }
   .painel .descricao__nome::after {
     content: ''; }
   .painel .descricao__preco::after {
-    content: "R$12.000,00"; }
+    content: ''; }
   .painel .descricao__detalhe::after {
-    content: "ver detalhes"; }
+    content: ''; }
