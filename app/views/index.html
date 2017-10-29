@@ -44,23 +44,6 @@
                 }
             ]
 
-            var html = 
-            '<div class="painel__item1">'+
-            '       <div class="descricao">'+
-            '            <img src="img/boi1.png">'+
-            '            <label class="descricao__nome">'+
-            '                <!--nome-->'+
-            '            </label>'+
-            '            <label class="descricao__preco">'+
-            '                <!--preco-->'+
-            '            </label>'+
-            '            <label class="descricao__detalhe">'+
-            '                <!--detalhe-->'+
-            '            </label>'+
-            '        </div>'+
-            '    </div>'
-
-
             itens.forEach(function(item,i){
                 i+=1;
                 conteudos('.painel__item'+[i]+' .descricao__nome',
@@ -74,6 +57,10 @@
                     'ver detalhes'
                 ); 
             });
+
+            var painel = document.querySelector('.painel').cloneNode(true);
+
+            
         }
 
     </script>
@@ -116,103 +103,7 @@
                             <!--detalhe-->
                         </label>
                     </div>
-                </div>
-                <!-- item2 -->
-                <div class="painel__item2">
-                    <div class="descricao">
-                        <img src="img/boi2.png">
-                        <label class="descricao__nome">
-                            <!--nome-->
-                        </label>
-                        <label class="descricao__preco">
-                            <!--preco-->
-                        </label>
-                        <label class="descricao__detalhe">
-                            <!--detalhe-->
-                        </label>
-                    </div>
-                </div>
-                <!-- item3 -->
-                <div class="painel__item3">
-                    <div class="descricao">
-                        <img src="img/boi3.png">
-                        <label class="descricao__nome">
-                            <!--nome-->
-                        </label>
-                        <label class="descricao__preco">
-                            <!--preco-->
-                        </label>
-                        <label class="descricao__detalhe">
-                            <!--detalhe-->
-                        </label>
-                    </div>
-                </div>
-            </section>
-            <!-- painel -->
-            <section class="painel">
-                <!-- item1 -->
-                <div class="painel__item1">
-                    <div class="descricao">
-                        <img src="img/boi1.png">
-                        <label class="descricao__nome">
-                            <!--nome-->
-                        </label>
-                        <label class="descricao__preco">
-                            <!--preco-->
-                        </label>
-                        <label class="descricao__detalhe">
-                            <!--detalhe-->
-                        </label>
-                    </div>
-                </div>
-                <!-- item2 -->
-                <div class="painel__item2">
-                    <div class="descricao">
-                        <img src="img/boi2.png">
-                        <label class="descricao__nome">
-                            <!--nome-->
-                        </label>
-                        <label class="descricao__preco">
-                            <!--preco-->
-                        </label>
-                        <label class="descricao__detalhe">
-                            <!--detalhe-->
-                        </label>
-                    </div>
-                </div>
-                <!-- item3 -->
-                <div class="painel__item3">
-                    <div class="descricao">
-                        <img src="img/boi3.png">
-                        <label class="descricao__nome">
-                            <!--nome-->
-                        </label>
-                        <label class="descricao__preco">
-                            <!--preco-->
-                        </label>
-                        <label class="descricao__detalhe">
-                            <!--detalhe-->
-                        </label>
-                    </div>
-                </div>
-            </section>
-            <!-- painel -->
-            <section class="painel">
-                <!-- item1 -->
-                <div class="painel__item1">
-                    <div class="descricao">
-                        <img src="img/boi1.png">
-                        <label class="descricao__nome">
-                            <!--nome-->
-                        </label>
-                        <label class="descricao__preco">
-                            <!--preco-->
-                        </label>
-                        <label class="descricao__detalhe">
-                            <!--detalhe-->
-                        </label>
-                    </div>
-                </div>
+                </div> 
                 <!-- item2 -->
                 <div class="painel__item2">
                     <div class="descricao">
