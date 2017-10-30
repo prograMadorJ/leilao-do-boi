@@ -1,47 +1,74 @@
-
-
 function Modelo() {
 
     // instancia variavel modelo como objeto html
     var modelo = document.createElement('html');
 
     // setar estrutura html que sera o modelo
-    this.setModelo = function(classe) {
+    this.setModelo = function (classe) {
         modelo = extrairElemento(classe);
     }
 
     // retorna estrutura html modelo
-    this.getModelo = function() {
-        return modelo;
+    this.getModelo = function () {
+        return modelo.cloneNode(true);
     }
 
-    // alterar o nome da classe do primeiro elemento do modelo
-    this.setClasse = function(classe) {
-        modelo.setAttribute('class',classe);
+    // alterar o nome da classe do primeiro elemento do modelo 
+    this.setClasse = function (classe) {
+        modelo.setAttribute('class', classe);
     }
 
-    removerDoDocumento = function(classe) {
-        document.querySelector(classe).remove;
+    // adicionar elemento ao modelo
+    this.adicionarAoModelo = function (classeDestino, elemento, classeElemento) {
+        adicionarAoModelo(classeDestino, elemento, classeElemento);
     }
 
-    obterElemento = function(classe) {
+    // adicionar o modelo ao documento
+    this.adicionarModeloAoDocumento = function (classe) {
+        adicionarAoDocumento(classe);
+    }
+
+    adicionarAoModelo = function (classeDestino, elemento, classeElemento) {
+        if (('.' + modelo.className) == classeDestino) {
+            modelo.append(elemento.querySelector(classeElemento).cloneNode(true));
+        } else {
+            modelo.querySelector(classeDestino)
+                .append(
+                    elemento.querySelector(classeElemento).cloneNode(true)
+                );
+        }
+    }
+
+    adicionarAoDocumento = function (classe) {
+        document.querySelector(classe).append(modelo.cloneNode(true));
+    }
+
+    removerDoDocumento = function (classe) {
+        document.querySelector(classe).remove();
+    }
+
+    obterElemento = function (classe) {
         return document.querySelector(classe).cloneNode(true);
     }
 
-    extrairElemento = function(classe) {
+    extrairElemento = function (classe) {
         var r = obterElemento(classe);
         removerDoDocumento(classe);
-        return r; 
+        return r;
     }
 }
 
-    window.onload = function() {
-        var modelo = new Modelo();
-        
-        modelo.setModelo('.painel');
+window.onload = function () {
+    var modelo = new Modelo();
 
-        modelo.setClasse('.painel__item');
+    modelo.setModelo('.painel');
 
-        console.log(modelo.getModelo());
-    }
+    //modelo.setClasse('painel__item');
 
+
+    modelo.adicionarAoModelo('.painel', modelo.getModelo(), '.painel__item');
+
+    modelo.adicionarModeloAoDocumento('.painel__grupo');
+
+    console.log(modelo.getModelo());
+}
