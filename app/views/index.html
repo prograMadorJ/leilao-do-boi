@@ -41,7 +41,7 @@
             itens.forEach(function(item,i){
                 
                 i+=1;
-
+                modelo.adicionarAoModelo('.painel',modelo.getLayout(),'.painel__item');
                 modelo.setClasse('.painel__item','painel__item'+i);
                 modelo.setAtributo('.painel__item'+[i]+' img','src',item.img);
                 modelo.setConteudo('.painel__item'+[i]+' .descricao__nome',
@@ -54,7 +54,10 @@
                     '.painel__item'+[i]+' .descricao__detalhe',
                     'ver detalhes'
                 ); 
+                
             });
+
+            modelo.adicionarModeloAoDocumento('.painel__grupo');
         }
 
         function renderConteudo(classe,conteudo) {
@@ -71,11 +74,12 @@
             
                 // instancia variavel modelo como objeto html
                 var modelo = document.createElement('html');
-                var layout = modelo.cloneNode(true);
+                var layout;
             
                 // setar estrutura html que sera o modelo
                 this.setModelo = function (classe) {
                     modelo = extrairElemento(classe);
+                    layout = modelo.cloneNode(true);
                 }
             
                 // retorna estrutura html modelo
