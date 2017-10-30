@@ -13,7 +13,7 @@
 
         window.onload = function() {
 
-            conteudo(
+            renderConteudo(
                 '.navbar__titulo',
                 'Teste'
             );
@@ -21,27 +21,40 @@
             var itens = [
                 {
                     nome:'Zebu Preto',
-                    preco:'R$5.000,00'
+                    preco:'R$5.000,00',
+                    img: 'img/boi1.png'
                 },
                 {
                     nome: 'Boi Forte',
-                    preco: 'R$15.000,00'
+                    preco: 'R$15.000,00',
+                    img: 'img/boi2.png'
                 },
                 {
                     nome: 'Nelore',
-                    preco: 'R$12.000,00'
+                    preco: 'R$12.000,00',
+                    img: 'img/boi3.png'
+                },
+                {
+                    nome: 'Nelor',
+                    preco: 'R$12.000,00',
+                    img: 'img/boi3.png'
                 }
             ];
 
-            var modelo = new Modelo();
-
-            modelo.setModelo('.painel__item');
-            
+            var modelo = new Modelo('.painel__item');           
             
             itens.forEach(function(item,i){
                 i+=1;
-                modelo.setClasse('painel__item'+i);
-                modelo.adicionarModelo('.painel');
+                if(i>3) {
+                    modelo = new Modelo('.painel');
+                    modelo.adicionarModelo('.painel__grupo');
+                    modelo.setClasse('painel__item'+i);
+                }
+                else {
+                    modelo.setClasse('painel__item'+i);
+                    modelo.adicionarModelo('.painel');
+                }
+                modelo.setAtributo('.painel__item'+[i]+' img','src',item.img);
                 modelo.setDados('.painel__item'+[i]+' .descricao__nome',
                     item.nome
                 );
@@ -55,23 +68,28 @@
             });
         }
 
-        function conteudo(classe,conteudo) {
+        function renderConteudo(classe,conteudo) {
             document.querySelector(classe).innerHTML = conteudo;
         }
 
-        function conteudos(classe,conteudo) {
+        function renderConteudos(classe,conteudo) {
             var e = document.querySelectorAll(classe);
             e.forEach(function(element,index) {
                 element.innerHTML = conteudo;
             }, this);
         }
-        function Modelo() { 
+        function Modelo(classe) { 
             var modelo = document.createElement('HTML');
+            var modeloOrigem = document.createElement('HTML');
             this.getModelo = function() {
                 return modelo.cloneNode(true);
             }
+            this.getModeloOrigem = function() {
+                return modeloOrigem;
+            }
             this.setModelo = function(classe) {
                 modelo = document.querySelector(classe).cloneNode(true);
+                modeloOrigem = modelo.cloneNode(true);
                 document.querySelector('.'+modelo.className).remove();                    
             }
             this.setClasse = function(classe) {
@@ -80,9 +98,21 @@
             this.adicionarModelo = function(classe) {
                 document.querySelector(classe).append(modelo.cloneNode(true));
             }
-            this.setDados = function(classe,dados) {
-                conteudos(classe,dados);
+            this.adicionarModeloDest = function(classeAtual,classeDestino) {
+                document.querySelector(classeDestino)
+                    .append(
+                        modeloOrigem.querySelector(classeAtual).cloneNode(true)
+                    );
             }
+            this.setDados = function(classe,dados) {
+                renderConteudos(classe,dados);
+            }
+            this.setAtributo = function(classe,atributo,valor) {
+                document.querySelector(classe).setAttribute(atributo,valor);
+
+            }
+            if(classe!=null)
+                this.setModelo(classe);
         }
 
 
