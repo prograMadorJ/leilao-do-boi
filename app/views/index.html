@@ -36,12 +36,14 @@
                 }
             ];
 
-            var modelo = new Modelo('.painel');           
+            var modelo = new Modelo('.painel'); 
+            modelo.adicionarModeloAoDocumento('.painel__grupo');          
             
             itens.forEach(function(item,i){
                 
                 i+=1;
-                modelo.adicionarAoModelo('.painel',modelo.getLayout(),'.painel__item');
+                
+                //modelo.adicionarAoModelo('.painel',modelo.getLayout(),'.painel__item');
                 modelo.setClasse('.painel__item','painel__item'+i);
                 modelo.setAtributo('.painel__item'+[i]+' img','src',item.img);
                 modelo.setConteudo('.painel__item'+[i]+' .descricao__nome',
@@ -54,10 +56,11 @@
                     '.painel__item'+[i]+' .descricao__detalhe',
                     'ver detalhes'
                 ); 
-                
+                modelo.adicionarModeloAoDocumento('.painel');
+                modelo.novoModelo();
             });
 
-            modelo.adicionarModeloAoDocumento('.painel__grupo');
+            //modelo.adicionarModeloAoDocumento('.painel__grupo');
         }
 
         function renderConteudo(classe,conteudo) {
@@ -70,94 +73,107 @@
                 element.innerHTML = conteudo;
             }, this);
         }
+
         function Modelo(classe) {
             
                 // instancia variavel modelo como objeto html
                 var modelo = document.createElement('html');
-                var layout;
+                var estagio = document.createElement('html');
+                var front = document.createElement('html');
             
+                // cria um novo modelo
+                this.novoModelo = novoModelo;
+                
+                // criar um novo estagio
+                this.novoEstagio = novoEstagio;
+
+                // adicionar ao front
+                this.adicionarAoFront = adicionarAoFront;
+
                 // setar estrutura html que sera o modelo
-                this.setModelo = function (classe) {
-                    modelo = extrairElemento(classe);
-                    layout = modelo.cloneNode(true);
-                }
+                this.setModelo = setModelo;
             
                 // retorna estrutura html modelo
-                this.getModelo = function () {
+                this.getModelo = getModelo;
+            
+                // alterar o nome da classe de um elemento do modelo 
+                this.setClasse = setClasse;
+
+                // alterar atributo do elmento
+                this.setAtributo = setAtributo;
+
+                // adicionar conteudo ao modelo
+                this.setConteudo = setConteudo;
+            
+                // adicionar elemento ao front
+                this.adicionarAoFront = adicionarAoFront;
+            
+                // adicionar o front ao documento
+                this.adicionarFrontAoDocumento = adicionarFrontAoDocumento;
+            
+
+                novoModelo = function() {
+                    modelo = document.createElement('html');
+                }
+
+                novoEstagio = function() {
+                    estagio = modelo.cloneNode(true);
+                }
+
+                setModelo = function(classe) {
+                    modelo = extrairElemento(classe);
+                }
+
+                getModelo = function() {
                     return modelo.cloneNode(true);
                 }
 
-                // retorna estrutura modelo 
-                this.getLayout = function() {
-                    return layout.cloneNode(true);
-                }
-            
-                // alterar o nome da classe de um elemento do modelo 
-                this.setClasse = function (classeDest,classe) {
-                    if(('.'+modelo.className)==classeDest) {
-                        modelo.setAttribute('class',classe);
+                setClasse = function (classeDest,classe) {
+                    if(('.'+estagio.className)==classeDest) {
+                        estagio.setAttribute('class',classe);
                     }
                     else {
-                        modelo.querySelector(classeDest).setAttribute('class', classe);
+                        estagio.querySelector(classeDest).setAttribute('class', classe);
                     }
                 }
 
-                // alterar atributo do elmento
-                this.setAtributo = function(classe,atributo,valor) {
-                    modelo.querySelector(classe).setAttribute(atributo,valor);
+                setAtributo = function(classe,atributo,valor) {
+                    estagio.querySelector(classe).setAttribute(atributo,valor);
                 }
 
-                // adicionar conteudo ao modelo
-                this.setConteudo = function(classe,conteudo) {
-                    addConteudo(classe,conteudo);
+                setConteudo = function(classe,conteudo){
+                    if(('.'+estagio.className)==classe) {
+                        estagio.innerHTML = conteudo;
+                    }
+                    else {
+                        estagio.querySelector(classe).innerHTML = conteudo;
+                    }
                 }
-            
-                // adicionar elemento ao modelo
-                this.adicionarAoModelo = function (classeDestino, elemento, classeElemento) {
-                    adicionarAoModelo(classeDestino, elemento, classeElemento);
-                }
-            
-                // adicionar o modelo ao documento
-                this.adicionarModeloAoDocumento = function (classe) {
-                    adicionarAoDocumento(classe);
-                }
-            
-                adicionarAoModelo = function (classeDestino, elemento, classeElemento) {
-                    if (('.' + modelo.className) == classeDestino) {
-                        modelo.append(elemento.querySelector(classeElemento).cloneNode(true));
+
+                adicionarAoFront = function (classeDestino, elemento, classeElemento) {
+                    if (('.' + elemento.className) == classeDestino) {
+                        front.append(elemento.cloneNode(true));
                     } else {
-                        modelo.querySelector(classeDestino)
-                            .append(
-                                elemento.querySelector(classeElemento).cloneNode(true)
-                            );
+                        front.append(elemento.querySelector(classeElemento).cloneNode(true));
                     }
                 }
             
-                adicionarAoDocumento = function (classe) {
-                    document.querySelector(classe).append(modelo.cloneNode(true));
+                adicionarFrontAoDocumento = function (classe) {
+                    document.querySelector(classe).append(front);
                 }
             
                 removerDoDocumento = function (classe) {
                     document.querySelector(classe).remove();
                 }
             
-                obterElemento = function (classe) {
+                copiarElemento = function (classe) {
                     return document.querySelector(classe).cloneNode(true);
                 }
-            
-                extrairElemento = function (classe) {
-                    var r = obterElemento(classe);
-                    removerDoDocumento(classe);
-                    return r;
-                }
 
-                addConteudo = function(classe,conteudo){
-                    if(('.'+modelo.className)==classe) {
-                        modelo.innerHTML = conteudo;
-                    }
-                    else {
-                        modelo.querySelector(classe).innerHTML = conteudo;
-                    }
+                extrairElemento = function (classe) {
+                    var elemento = document.createElement('html');
+                    elemento.append(document.querySelector(classe));
+                    return elemento;
                 }
 
                 if(classe!=null)

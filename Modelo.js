@@ -1,96 +1,113 @@
 function Modelo(classe) {
+    
+        // instancia variavel modelo como objeto html
+        var modelo = document.createElement('html');
+        var estagio = document.createElement('html');
+        var front = document.createElement('html');
+    
+        // cria um novo modelo
+        this.novoModelo = novoModelo;
+        
+        // criar um novo estagio
+        this.novoEstagio = novoEstagio;
 
-    // instancia variavel modelo como objeto html
-    var modelo = document.createElement('html');
+        // adicionar ao front
+        this.adicionarAoFront = adicionarAoFront;
 
-    // setar estrutura html que sera o modelo
-    this.setModelo = function (classe) {
-        modelo = extrairElemento(classe);
-    }
+        // setar estrutura html que sera o modelo
+        this.setModelo = setModelo;
+    
+        // retorna estrutura html modelo
+        this.getModelo = getModelo;
+    
+        // alterar o nome da classe de um elemento do modelo 
+        this.setClasse = setClasse;
 
+        // alterar atributo do elmento
+        this.setAtributo = setAtributo;
+
+        // adicionar conteudo ao modelo
+        this.setConteudo = setConteudo;
+    
+        // adicionar elemento ao front
+        this.adicionarAoFront = adicionarAoFront;
+    
+        // adicionar o front ao documento
+        this.adicionarFrontAoDocumento = adicionarFrontAoDocumento;
     
 
-    // retorna estrutura html modelo
-    this.getModelo = function () {
-        return modelo.cloneNode(true);
-    }
-
-    // alterar o nome da classe do primeiro elemento do modelo 
-    this.setClasse = function (classe) {
-        modelo.setAttribute('class', classe);
-    }
-
-    // alterar atributo do elmento
-    this.setAtributo = function(classe,atributo,valor) {
-        modelo.querySelector(classe).setAtributo(atributo,valor);
-    }
-
-    // adicionar conteudo ao modelo
-    this.setConteudo = function(classe,conteudo) {
-        addConteudo(classe,conteudo);
-    }
-
-    // adicionar elemento ao modelo
-    this.adicionarAoModelo = function (classeDestino, elemento, classeElemento) {
-        adicionarAoModelo(classeDestino, elemento, classeElemento);
-    }
-
-    // adicionar o modelo ao documento
-    this.adicionarModeloAoDocumento = function (classe) {
-        adicionarAoDocumento(classe);
-    }
-
-    addConteudo = function(classe,conteudo) {
-        if(('.'+modelo.className)==classe) {
-            modelo.innerHTML = conteudo;
+        novoModelo = function() {
+            modelo = document.createElement('html');
         }
-        else {
-            modelo.querySelector(classe).innerHTML = conteudo;
+
+        novoEstagio = function() {
+            estagio = modelo.cloneNode(true);
         }
-    }
 
-    adicionarAoModelo = function (classeDestino, elemento, classeElemento) {
-        if (('.' + modelo.className) == classeDestino) {
-            modelo.append(elemento.querySelector(classeElemento).cloneNode(true));
-        } else {
-            modelo.querySelector(classeDestino)
-                .append(
-                    elemento.querySelector(classeElemento).cloneNode(true)
-                );
+        setModelo = function(classe) {
+            modelo = extrairElemento(classe);
         }
-    }
 
-    adicionarAoDocumento = function (classe) {
-        document.querySelector(classe).append(modelo.cloneNode(true));
-    }
+        getModelo = function() {
+            return modelo.cloneNode(true);
+        }
 
-    removerDoDocumento = function (classe) {
-        document.querySelector(classe).remove();
-    }
+        setClasse = function (classeDest,classe) {
+            if(('.'+estagio.className)==classeDest) {
+                estagio.setAttribute('class',classe);
+            }
+            else {
+                estagio.querySelector(classeDest).setAttribute('class', classe);
+            }
+        }
 
-    obterElemento = function (classe) {
-        return document.querySelector(classe).cloneNode(true);
-    }
+        setAtributo = function(classe,atributo,valor) {
+            estagio.querySelector(classe).setAttribute(atributo,valor);
+        }
 
-    extrairElemento = function (classe) {
-        var r = obterElemento(classe);
-        removerDoDocumento(classe);
-        return r;
-    }
+        setConteudo = function(classe,conteudo){
+            if(('.'+estagio.className)==classe) {
+                estagio.innerHTML = conteudo;
+            }
+            else {
+                estagio.querySelector(classe).innerHTML = conteudo;
+            }
+        }
 
-    if(classe!=null)this.setModelo(classe);
-   
-}
+        adicionarAoFront = function (classeDestino, elemento, classeElemento) {
+            if (('.' + elemento.className) == classeDestino) {
+                front.append(elemento.cloneNode(true));
+            } else {
+                front.append(elemento.querySelector(classeElemento).cloneNode(true));
+            }
+        }
+    
+        adicionarFrontAoDocumento = function (classe) {
+            document.querySelector(classe).append(front);
+        }
+    
+        removerDoDocumento = function (classe) {
+            document.querySelector(classe).remove();
+        }
+    
+        copiarElemento = function (classe) {
+            return document.querySelector(classe).cloneNode(true);
+        }
+
+        extrairElemento = function (classe) {
+            var elemento = document.createElement('html');
+            elemento.append(document.querySelector(classe));
+            return elemento;
+        }
+
+        if(classe!=null)
+            this.setModelo(classe);
+    }
 
 window.onload = function () {
+    
     var modelo = new Modelo('.painel');
 
-    //modelo.setClasse('painel__item');
-
-
-    modelo.adicionarAoModelo('.painel', modelo.getModelo(), '.painel__item');
-
-    modelo.adicionarModeloAoDocumento('.painel__grupo');
 
     console.log(modelo.getModelo());
 }
