@@ -40,6 +40,8 @@ function Modelo() {
         
         modelo.setModelo('.painel');
 
+        modelo.setClasse('.painel__item');
+
         console.log(modelo.getModelo());
     }
 
