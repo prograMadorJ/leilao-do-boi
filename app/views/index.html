@@ -11,17 +11,6 @@
     <!--endbuild-->
     <script type="text/javascript">
 
-        function conteudo(classe,conteudo) {
-            document.querySelector(classe).innerHTML = conteudo;
-        }
-
-        function conteudos(classe,conteudo) {
-            var e = document.querySelectorAll(classe);
-            e.forEach(function(element,index) {
-                element.innerHTML = conteudo;
-            }, this);
-        }
-
         window.onload = function() {
 
             conteudo(
@@ -42,24 +31,7 @@
                     nome: 'Nelore',
                     preco: 'R$12.000,00'
                 }
-            ]
-
-            function Modelo() { 
-                var modelo = document.createElement('HTML');
-                this.getModelo = function() {
-                    return modelo.cloneNode(true);
-                }
-                this.setModelo = function(classe) {
-                    modelo = document.querySelector(classe).cloneNode(true);
-                    document.querySelector('.'+modelo.className).remove();                    
-                }
-                this.setClasse = function(classe) {
-                    modelo.setAttribute('class',classe);
-                }
-                this.adicionarModelo = function(classe) {
-                    document.querySelector(classe).append(modelo.cloneNode(true));
-                }
-            }
+            ];
 
             var modelo = new Modelo();
 
@@ -70,24 +42,49 @@
                 i+=1;
                 modelo.setClasse('painel__item'+i);
                 modelo.adicionarModelo('.painel');
-                conteudos('.painel__item'+[i]+' .descricao__nome',
+                modelo.setDados('.painel__item'+[i]+' .descricao__nome',
                     item.nome
                 );
-                conteudos('.painel__item'+[i]+' .descricao__preco',
+                modelo.setDados('.painel__item'+[i]+' .descricao__preco',
                     item.preco
                 );
-                conteudos(
+                modelo.setDados(
                     '.painel__item'+[i]+' .descricao__detalhe',
                     'ver detalhes'
                 ); 
             });
-
-            
-
-            
-            
-
         }
+
+        function conteudo(classe,conteudo) {
+            document.querySelector(classe).innerHTML = conteudo;
+        }
+
+        function conteudos(classe,conteudo) {
+            var e = document.querySelectorAll(classe);
+            e.forEach(function(element,index) {
+                element.innerHTML = conteudo;
+            }, this);
+        }
+        function Modelo() { 
+            var modelo = document.createElement('HTML');
+            this.getModelo = function() {
+                return modelo.cloneNode(true);
+            }
+            this.setModelo = function(classe) {
+                modelo = document.querySelector(classe).cloneNode(true);
+                document.querySelector('.'+modelo.className).remove();                    
+            }
+            this.setClasse = function(classe) {
+                modelo.setAttribute('class',classe);
+            }
+            this.adicionarModelo = function(classe) {
+                document.querySelector(classe).append(modelo.cloneNode(true));
+            }
+            this.setDados = function(classe,dados) {
+                conteudos(classe,dados);
+            }
+        }
+
 
     </script>
     <title>Document</title>
