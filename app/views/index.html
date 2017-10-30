@@ -42,10 +42,7 @@
                 
                 i+=1;
 
-
                 modelo.setClasse('.painel__item','painel__item'+i);
-                
-
                 modelo.setAtributo('.painel__item'+[i]+' img','src',item.img);
                 modelo.setDados('.painel__item'+[i]+' .descricao__nome',
                     item.nome
@@ -95,7 +92,7 @@
                 this.setClasse = function (classe) {
                     modelo.setAttribute('class', classe);
                 }
-                
+
                 // alterar atributo do elmento
                 this.setAtributo = function(classe,atributo,valor) {
                     modelo.querySelector(classe).setAtributo(atributo,valor);

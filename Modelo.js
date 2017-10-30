@@ -25,6 +25,10 @@ function Modelo(classe) {
         modelo.querySelector(classe).setAtributo(atributo,valor);
     }
 
+    this.setConteudo = function(classe,conteudo) {
+    
+    }
+
     // adicionar elemento ao modelo
     this.adicionarAoModelo = function (classeDestino, elemento, classeElemento) {
         adicionarAoModelo(classeDestino, elemento, classeElemento);
@@ -33,6 +37,15 @@ function Modelo(classe) {
     // adicionar o modelo ao documento
     this.adicionarModeloAoDocumento = function (classe) {
         adicionarAoDocumento(classe);
+    }
+
+    addConteudo(classe,conteudo) = function() {
+        if(('.'+modelo.className)==classe) {
+            modelo.innerHTML = conteudo;
+        }
+        else {
+            modelo.querySelector(classe).innerHTML = conteudo;
+        }
     }
 
     adicionarAoModelo = function (classeDestino, elemento, classeElemento) {
