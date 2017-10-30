@@ -25,8 +25,9 @@ function Modelo(classe) {
         modelo.querySelector(classe).setAtributo(atributo,valor);
     }
 
+    // adicionar conteudo ao modelo
     this.setConteudo = function(classe,conteudo) {
-    
+        addConteudo(classe,conteudo);
     }
 
     // adicionar elemento ao modelo
