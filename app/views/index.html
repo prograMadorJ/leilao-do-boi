@@ -36,31 +36,31 @@
                 }
             ];
 
-            // var modelo = new Modelo('.painel__item');           
+            var modelo = new Modelo('.painel__item');           
             
-            // itens.forEach(function(item,i){
+            itens.forEach(function(item,i){
                 
-            //     i+=1;
+                i+=1;
 
-            //         modelo.setClasse('.painel__item','painel__item'+i);
-            //         modelo.adicionarModelo('.painel');
+                    modelo.setClasse('.painel__item','painel__item'+i);
+                    modelo.adicionarModelo('.painel');
 
 
-            //     modelo.setClasse('.painel__item','painel__item'+i);
-            //     modelo.adicionarModelo('.painel');
+                modelo.setClasse('.painel__item','painel__item'+i);
+                modelo.adicionarModelo('.painel');
 
-            //     modelo.setAtributo('.painel__item'+[i]+' img','src',item.img);
-            //     modelo.setDados('.painel__item'+[i]+' .descricao__nome',
-            //         item.nome
-            //     );
-            //     modelo.setDados('.painel__item'+[i]+' .descricao__preco',
-            //         item.preco
-            //     );
-            //     modelo.setDados(
-            //         '.painel__item'+[i]+' .descricao__detalhe',
-            //         'ver detalhes'
-            //     ); 
-            // });
+                modelo.setAtributo('.painel__item'+[i]+' img','src',item.img);
+                modelo.setDados('.painel__item'+[i]+' .descricao__nome',
+                    item.nome
+                );
+                modelo.setDados('.painel__item'+[i]+' .descricao__preco',
+                    item.preco
+                );
+                modelo.setDados(
+                    '.painel__item'+[i]+' .descricao__detalhe',
+                    'ver detalhes'
+                ); 
+            });
         }
 
         function renderConteudo(classe,conteudo) {
@@ -73,56 +73,70 @@
                 element.innerHTML = conteudo;
             }, this);
         }
-        function Modelo(classe) { 
-
-            var modelo = document.createElement('HTML');
-            var modeloOrigem = document.createElement('HTML');
-
-            this.getModelo = function() {
-                return modelo.cloneNode(true);
+        function Modelo(classe) {
+            
+                // instancia variavel modelo como objeto html
+                var modelo = document.createElement('html');
+            
+                // setar estrutura html que sera o modelo
+                this.setModelo = function (classe) {
+                    modelo = extrairElemento(classe);
+                }
+                if(classe!=null)
+                    this.setModelo(classe);
+            
+                // retorna estrutura html modelo
+                this.getModelo = function () {
+                    return modelo.cloneNode(true);
+                }
+            
+                // alterar o nome da classe do primeiro elemento do modelo 
+                this.setClasse = function (classe) {
+                    modelo.setAttribute('class', classe);
+                }
+            
+                // adicionar elemento ao modelo
+                this.adicionarAoModelo = function (classeDestino, elemento, classeElemento) {
+                    adicionarAoModelo(classeDestino, elemento, classeElemento);
+                }
+            
+                // adicionar o modelo ao documento
+                this.adicionarModeloAoDocumento = function (classe) {
+                    adicionarAoDocumento(classe);
+                }
+            
+                adicionarAoModelo = function (classeDestino, elemento, classeElemento) {
+                    if (('.' + modelo.className) == classeDestino) {
+                        modelo.append(elemento.querySelector(classeElemento).cloneNode(true));
+                    } else {
+                        modelo.querySelector(classeDestino)
+                            .append(
+                                elemento.querySelector(classeElemento).cloneNode(true)
+                            );
+                    }
+                }
+            
+                adicionarAoDocumento = function (classe) {
+                    document.querySelector(classe).append(modelo.cloneNode(true));
+                }
+            
+                removerDoDocumento = function (classe) {
+                    document.querySelector(classe).remove();
+                }
+            
+                obterElemento = function (classe) {
+                    return document.querySelector(classe).cloneNode(true);
+                }
+            
+                extrairElemento = function (classe) {
+                    var r = obterElemento(classe);
+                    removerDoDocumento(classe);
+                    return r;
+                }
             }
 
-            this.getModeloOrigem = function() {
-                return modeloOrigem;
-            }
+            
 
-            this.setModelo = function(classe) {
-                modelo = document.querySelector(classe).cloneNode(true);
-                modeloOrigem = modelo.cloneNode(true);
-                document.querySelector('.'+modelo.className).remove();                    
-            }
-
-            this.setClasse = function(classe) {
-                document.setAttribute('class',classe);
-            }
-
-            this.setClasseElemento = function(elemento,classe) {
-                modeloOrigem.querySelector(elemento).setAttribute('class',classe);
-            }
-
-            this.adicionarModelo = function(classe) {
-                document.querySelector(classe).append(modelo.cloneNode(true));
-            }
-
-            this.adicionarModeloDest = function(classeAtual,classeDestino) {
-                document.querySelector(classeDestino)
-                    .append(
-                        modeloOrigem.querySelector(classeAtual).cloneNode(true)
-                    );
-            }
-
-            this.setDados = function(classe,dados) {
-                renderConteudos(classe,dados);
-            }
-
-            this.setAtributo = function(classe,atributo,valor) {
-                document.querySelector(classe).setAttribute(atributo,valor);
-
-            }
-
-            if(classe!=null)
-                this.setModelo(classe);
-        }
 
 
     </script>
