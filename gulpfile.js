@@ -23,8 +23,8 @@ gulp.task('hello',function(){
 gulp.task('browserSync',function(){
     browserSync.init({
         server: {
-            baseDir: 'app/views'
-            //baseDir: './'
+            //baseDir: 'app/views'
+            baseDir: './'
         }
     })
 });
