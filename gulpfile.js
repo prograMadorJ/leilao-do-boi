@@ -24,6 +24,7 @@ gulp.task('browserSync',function(){
     browserSync.init({
         server: {
             baseDir: 'app/views'
+            //baseDir: './'
         }
     })
 });
@@ -52,8 +53,13 @@ gulp.task('copy',function(){
 gulp.task('watch',['browserSync','sass'],function(){
     gulp.watch('app/views/scss/**/*.scss',['sass'])
     gulp.watch('app/views/*.html',browserSync.reload)
-    // gulp.watch('app/views/css/**/*.css',browserSync.reload)
+     gulp.watch('app/views/css/**/*.css',browserSync.reload)
     // gulp.watch('app/views/js/**/*.js',browserSync.reload)
+});
+
+gulp.task('teste',['browserSync'],function(){
+    gulp.watch('*.html',browserSync.reload);
+    gulp.watch('*.js',browserSync.reload)
 });
 
 

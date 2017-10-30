@@ -13,10 +13,10 @@
 
         window.onload = function() {
 
-            renderConteudo(
-                '.navbar__titulo',
-                'Teste'
-            );
+            // renderConteudo(
+            //     '.navbar__titulo',
+            //     'Leilão do Boi'
+            // );
 
             var itens = [
                 {
@@ -33,39 +33,34 @@
                     nome: 'Nelore',
                     preco: 'R$12.000,00',
                     img: 'img/boi3.png'
-                },
-                {
-                    nome: 'Nelor',
-                    preco: 'R$12.000,00',
-                    img: 'img/boi3.png'
                 }
             ];
 
-            var modelo = new Modelo('.painel__item');           
+            // var modelo = new Modelo('.painel__item');           
             
-            itens.forEach(function(item,i){
-                i+=1;
-                if(i>3) {
-                    modelo = new Modelo('.painel');
-                    modelo.adicionarModelo('.painel__grupo');
-                    modelo.setClasse('painel__item'+i);
-                }
-                else {
-                    modelo.setClasse('painel__item'+i);
-                    modelo.adicionarModelo('.painel');
-                }
-                modelo.setAtributo('.painel__item'+[i]+' img','src',item.img);
-                modelo.setDados('.painel__item'+[i]+' .descricao__nome',
-                    item.nome
-                );
-                modelo.setDados('.painel__item'+[i]+' .descricao__preco',
-                    item.preco
-                );
-                modelo.setDados(
-                    '.painel__item'+[i]+' .descricao__detalhe',
-                    'ver detalhes'
-                ); 
-            });
+            // itens.forEach(function(item,i){
+                
+            //     i+=1;
+
+            //         modelo.setClasse('.painel__item','painel__item'+i);
+            //         modelo.adicionarModelo('.painel');
+
+
+            //     modelo.setClasse('.painel__item','painel__item'+i);
+            //     modelo.adicionarModelo('.painel');
+
+            //     modelo.setAtributo('.painel__item'+[i]+' img','src',item.img);
+            //     modelo.setDados('.painel__item'+[i]+' .descricao__nome',
+            //         item.nome
+            //     );
+            //     modelo.setDados('.painel__item'+[i]+' .descricao__preco',
+            //         item.preco
+            //     );
+            //     modelo.setDados(
+            //         '.painel__item'+[i]+' .descricao__detalhe',
+            //         'ver detalhes'
+            //     ); 
+            // });
         }
 
         function renderConteudo(classe,conteudo) {
@@ -79,38 +74,52 @@
             }, this);
         }
         function Modelo(classe) { 
+
             var modelo = document.createElement('HTML');
             var modeloOrigem = document.createElement('HTML');
+
             this.getModelo = function() {
                 return modelo.cloneNode(true);
             }
+
             this.getModeloOrigem = function() {
                 return modeloOrigem;
             }
+
             this.setModelo = function(classe) {
                 modelo = document.querySelector(classe).cloneNode(true);
                 modeloOrigem = modelo.cloneNode(true);
                 document.querySelector('.'+modelo.className).remove();                    
             }
+
             this.setClasse = function(classe) {
-                modelo.setAttribute('class',classe);
+                document.setAttribute('class',classe);
             }
+
+            this.setClasseElemento = function(elemento,classe) {
+                modeloOrigem.querySelector(elemento).setAttribute('class',classe);
+            }
+
             this.adicionarModelo = function(classe) {
                 document.querySelector(classe).append(modelo.cloneNode(true));
             }
+
             this.adicionarModeloDest = function(classeAtual,classeDestino) {
                 document.querySelector(classeDestino)
                     .append(
                         modeloOrigem.querySelector(classeAtual).cloneNode(true)
                     );
             }
+
             this.setDados = function(classe,dados) {
                 renderConteudos(classe,dados);
             }
+
             this.setAtributo = function(classe,atributo,valor) {
                 document.querySelector(classe).setAttribute(atributo,valor);
 
             }
+
             if(classe!=null)
                 this.setModelo(classe);
         }
@@ -143,7 +152,7 @@
         <section class="painel__grupo">
             <section class="painel">
                 <!-- item1 -->
-                <div class="painel__item">
+                <div class="painel__item1">
                     <div class="descricao">
                         <img src="img/boi1.png">
                         <label class="descricao__nome">
@@ -156,6 +165,32 @@
                             <!--detalhe-->
                         </label>
                     </div>
+                    <div class="painel__item2">
+                    <div class="descricao">
+                        <img src="img/boi2.png">
+                        <label class="descricao__nome">
+                            <!--nome-->
+                        </label>
+                        <label class="descricao__preco">
+                            <!--preco-->
+                        </label>
+                        <label class="descricao__detalhe">
+                            <!--detalhe-->
+                        </label>
+                    </div>
+                    <div class="painel__item3">
+                            <div class="descricao">
+                                <img src="img/boi3.png">
+                                <label class="descricao__nome">
+                                    <!--nome-->
+                                </label>
+                                <label class="descricao__preco">
+                                    <!--preco-->
+                                </label>
+                                <label class="descricao__detalhe">
+                                    <!--detalhe-->
+                                </label>
+                            </div>
                 </div> 
             </section>
         </section>

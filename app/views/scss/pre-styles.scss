@@ -43,9 +43,9 @@
         color: rgb(245, 238, 238);
         font-size: 1.6em;
         white-space: nowrap;
-        // &::after {
-        //     content: $titulo;
-        // }
+        &::after {
+            content: $titulo;
+        }
     }
     .img__logo {
         max-width: 120px;
@@ -105,7 +105,7 @@
             padding: 5px;
             border-radius: 3px;
             img {
-                max-width: 500px;
+                //max-width: 500px;
                 min-width: 86px;
                 min-height: 60px;
                 border-radius: 3px;
@@ -139,17 +139,17 @@
     // com que este seja repetido varias vezes
     .descricao__nome {
         &::after {
-            content: '';//$nome;
+            content: $nome;
         }
     }
     .descricao__preco {
         &::after {
-            content: '';//$preco;
+            content: $preco;
         }
     }
     .descricao__detalhe {
         &::after {
-            content: '';//$detalhe;
+            content: $detalhe;
         }
     }
 }
@@ -201,11 +201,11 @@ input[type=checkbox] {
 }
 
 .slideThree:before {
-    content: 'visão: \2683';
+    content: 'visual: \2683';
     font: 15px/20px Arial, sans-serif;
     color: #353c35;
     position: absolute;
-    left: -65px;
+    left: -70px;
     line-height: 1.4em;
     z-index: 0;
     font-weight: bold;
@@ -254,6 +254,9 @@ input[type=checkbox] {
 }
 
 #slideThree:checked ~ .navbar .slideThree:before {
-    content: 'visão: \2680';
+    content: 'visual: \2680';
 }
 
+#slideThree:checked ~ .painel__grupo img {
+    max-width: 500px;
+}
