@@ -10,7 +10,7 @@ function Modelo() {
         modelo = extrairElemento(classe);
     }
 
-    // retorna estrura html modelo
+    // retorna estrutura html modelo
     this.getModelo = function() {
         return modelo;
     }
