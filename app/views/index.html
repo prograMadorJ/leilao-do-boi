@@ -44,15 +44,32 @@
                 }
             ]
 
+            function Modelo() { 
+                var modelo = document.createElement('HTML');
+                this.getModelo = function() {
+                    return modelo.cloneNode(true);
+                }
+                this.setModelo = function(classe) {
+                    modelo = document.querySelector(classe).cloneNode(true);
+                    document.querySelector('.'+modelo.className).remove();                    
+                }
+                this.setClasse = function(classe) {
+                    modelo.setAttribute('class',classe);
+                }
+                this.adicionarModelo = function(classe) {
+                    document.querySelector(classe).append(modelo.cloneNode(true));
+                }
+            }
 
-           var painelItem = document.createElement('HTML');
-                painelItem = document.querySelector('.painel__item').cloneNode(true);
-                document.querySelector('.'+painelItem.className).remove();
-               
+            var modelo = new Modelo();
+
+            modelo.setModelo('.painel__item');
+            
+            
             itens.forEach(function(item,i){
                 i+=1;
-                painelItem.setAttribute('class','painel__item'+i);
-                document.querySelector('.painel').append(painelItem.cloneNode(true));
+                modelo.setClasse('painel__item'+i);
+                modelo.adicionarModelo('.painel');
                 conteudos('.painel__item'+[i]+' .descricao__nome',
                     item.nome
                 );
