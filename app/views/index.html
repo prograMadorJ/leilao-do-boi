@@ -13,10 +13,10 @@
 
         window.onload = function() {
 
-            // renderConteudo(
-            //     '.navbar__titulo',
-            //     'Leilão do Boi'
-            // );
+            renderConteudo(
+                '.navbar__titulo',
+                'Leilão do Boi'
+            );
 
             var itens = [
                 {
@@ -36,18 +36,16 @@
                 }
             ];
 
-            var modelo = new Modelo('.painel__item');           
+            var modelo = new Modelo('.painel');           
             
             itens.forEach(function(item,i){
                 
                 i+=1;
 
-                    modelo.setClasse('.painel__item','painel__item'+i);
-                    modelo.adicionarModelo('.painel');
-
+                modelo.adicionarAoModelo('.painel',modelo.getModelo(),);
 
                 modelo.setClasse('.painel__item','painel__item'+i);
-                modelo.adicionarModelo('.painel');
+                
 
                 modelo.setAtributo('.painel__item'+[i]+' img','src',item.img);
                 modelo.setDados('.painel__item'+[i]+' .descricao__nome',
@@ -77,17 +75,21 @@
             
                 // instancia variavel modelo como objeto html
                 var modelo = document.createElement('html');
+                var layout = modelo.cloneNode(true);
             
                 // setar estrutura html que sera o modelo
                 this.setModelo = function (classe) {
                     modelo = extrairElemento(classe);
                 }
-                if(classe!=null)
-                    this.setModelo(classe);
             
                 // retorna estrutura html modelo
                 this.getModelo = function () {
                     return modelo.cloneNode(true);
+                }
+
+                // retorna estrutura modelo 
+                this.getLayout = function() {
+                    return layout.cloneNode(true);
                 }
             
                 // alterar o nome da classe do primeiro elemento do modelo 
@@ -133,6 +135,9 @@
                     removerDoDocumento(classe);
                     return r;
                 }
+
+                if(classe!=null)
+                    this.setModelo(classe);
             }
 
             
@@ -166,7 +171,7 @@
         <section class="painel__grupo">
             <section class="painel">
                 <!-- item1 -->
-                <div class="painel__item1">
+                <div class="painel__item">
                     <div class="descricao">
                         <img src="img/boi1.png">
                         <label class="descricao__nome">
@@ -180,171 +185,7 @@
                         </label>
                     </div>
                 </div>
-                    <div class="painel__item2">
-                    <div class="descricao">
-                        <img src="img/boi2.png">
-                        <label class="descricao__nome">
-                            <!--nome-->
-                        </label>
-                        <label class="descricao__preco">
-                            <!--preco-->
-                        </label>
-                        <label class="descricao__detalhe">
-                            <!--detalhe-->
-                        </label>
-                    </div>
-                    </div>
-                    <div class="painel__item3">
-                            <div class="descricao">
-                                <img src="img/boi3.png">
-                                <label class="descricao__nome">
-                                    <!--nome-->
-                                </label>
-                                <label class="descricao__preco">
-                                    <!--preco-->
-                                </label>
-                                <label class="descricao__detalhe">
-                                    <!--detalhe-->
-                                </label>
-                            </div>
-                    </div> 
             </section>
-            <section class="painel">
-                    <!-- item1 -->
-                    <div class="painel__item1">
-                        <div class="descricao">
-                            <img src="img/boi1.png">
-                            <label class="descricao__nome">
-                                <!--nome-->
-                            </label>
-                            <label class="descricao__preco">
-                                <!--preco-->
-                            </label>
-                            <label class="descricao__detalhe">
-                                <!--detalhe-->
-                            </label>
-                        </div>
-                    </div>
-                        <div class="painel__item2">
-                        <div class="descricao">
-                            <img src="img/boi2.png">
-                            <label class="descricao__nome">
-                                <!--nome-->
-                            </label>
-                            <label class="descricao__preco">
-                                <!--preco-->
-                            </label>
-                            <label class="descricao__detalhe">
-                                <!--detalhe-->
-                            </label>
-                        </div>
-                        </div>
-                        <div class="painel__item3">
-                                <div class="descricao">
-                                    <img src="img/boi3.png">
-                                    <label class="descricao__nome">
-                                        <!--nome-->
-                                    </label>
-                                    <label class="descricao__preco">
-                                        <!--preco-->
-                                    </label>
-                                    <label class="descricao__detalhe">
-                                        <!--detalhe-->
-                                    </label>
-                                </div>
-                        </div> 
-                </section>
-                <section class="painel">
-                        <!-- item1 -->
-                        <div class="painel__item1">
-                            <div class="descricao">
-                                <img src="img/boi1.png">
-                                <label class="descricao__nome">
-                                    <!--nome-->
-                                </label>
-                                <label class="descricao__preco">
-                                    <!--preco-->
-                                </label>
-                                <label class="descricao__detalhe">
-                                    <!--detalhe-->
-                                </label>
-                            </div>
-                        </div>
-                            <div class="painel__item2">
-                            <div class="descricao">
-                                <img src="img/boi2.png">
-                                <label class="descricao__nome">
-                                    <!--nome-->
-                                </label>
-                                <label class="descricao__preco">
-                                    <!--preco-->
-                                </label>
-                                <label class="descricao__detalhe">
-                                    <!--detalhe-->
-                                </label>
-                            </div>
-                            </div>
-                            <div class="painel__item3">
-                                    <div class="descricao">
-                                        <img src="img/boi3.png">
-                                        <label class="descricao__nome">
-                                            <!--nome-->
-                                        </label>
-                                        <label class="descricao__preco">
-                                            <!--preco-->
-                                        </label>
-                                        <label class="descricao__detalhe">
-                                            <!--detalhe-->
-                                        </label>
-                                    </div>
-                            </div> 
-                    </section>
-                    <section class="painel">
-                            <!-- item1 -->
-                            <div class="painel__item1">
-                                <div class="descricao">
-                                    <img src="img/boi1.png">
-                                    <label class="descricao__nome">
-                                        <!--nome-->
-                                    </label>
-                                    <label class="descricao__preco">
-                                        <!--preco-->
-                                    </label>
-                                    <label class="descricao__detalhe">
-                                        <!--detalhe-->
-                                    </label>
-                                </div>
-                            </div>
-                                <div class="painel__item2">
-                                <div class="descricao">
-                                    <img src="img/boi2.png">
-                                    <label class="descricao__nome">
-                                        <!--nome-->
-                                    </label>
-                                    <label class="descricao__preco">
-                                        <!--preco-->
-                                    </label>
-                                    <label class="descricao__detalhe">
-                                        <!--detalhe-->
-                                    </label>
-                                </div>
-                                </div>
-                                <div class="painel__item3">
-                                        <div class="descricao">
-                                            <img src="img/boi3.png">
-                                            <label class="descricao__nome">
-                                                <!--nome-->
-                                            </label>
-                                            <label class="descricao__preco">
-                                                <!--preco-->
-                                            </label>
-                                            <label class="descricao__detalhe">
-                                                <!--detalhe-->
-                                            </label>
-                                        </div>
-                                </div> 
-                        </section>
-        </section>
     </div>
 </body>
 

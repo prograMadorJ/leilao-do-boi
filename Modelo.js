@@ -1,4 +1,4 @@
-function Modelo() {
+function Modelo(classe) {
 
     // instancia variavel modelo como objeto html
     var modelo = document.createElement('html');
@@ -7,6 +7,8 @@ function Modelo() {
     this.setModelo = function (classe) {
         modelo = extrairElemento(classe);
     }
+
+    
 
     // retorna estrutura html modelo
     this.getModelo = function () {
@@ -56,12 +58,13 @@ function Modelo() {
         removerDoDocumento(classe);
         return r;
     }
+
+    if(classe!=null)this.setModelo(classe);
+   
 }
 
 window.onload = function () {
-    var modelo = new Modelo();
-
-    modelo.setModelo('.painel');
+    var modelo = new Modelo('.painel');
 
     //modelo.setClasse('painel__item');
 
