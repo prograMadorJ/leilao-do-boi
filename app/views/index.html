@@ -47,8 +47,9 @@
 
            var painelItem = document.createElement('HTML');
                 painelItem = document.querySelector('.painel__item').cloneNode(true);
-                document.querySelector('.painel__item').remove();
-
+                console.log('.'+painelItem.className);
+                document.querySelector('.'+painelItem.className).remove();
+               
             itens.forEach(function(item,i){
                 i+=1;
                 painelItem.setAttribute('class','painel__item'+i);
