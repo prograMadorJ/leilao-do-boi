@@ -20,6 +20,11 @@ function Modelo(classe) {
         modelo.setAttribute('class', classe);
     }
 
+    // alterar atributo do elmento
+    this.setAtributo = function(classe,atributo,valor) {
+        modelo.querySelector(classe).setAtributo(atributo,valor);
+    }
+
     // adicionar elemento ao modelo
     this.adicionarAoModelo = function (classeDestino, elemento, classeElemento) {
         adicionarAoModelo(classeDestino, elemento, classeElemento);
