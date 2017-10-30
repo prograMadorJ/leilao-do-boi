@@ -40,7 +40,7 @@ function Modelo(classe) {
         adicionarAoDocumento(classe);
     }
 
-    addConteudo(classe,conteudo) = function() {
+    addConteudo = function(classe,conteudo) {
         if(('.'+modelo.className)==classe) {
             modelo.innerHTML = conteudo;
         }

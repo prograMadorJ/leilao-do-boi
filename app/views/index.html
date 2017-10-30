@@ -44,13 +44,13 @@
 
                 modelo.setClasse('.painel__item','painel__item'+i);
                 modelo.setAtributo('.painel__item'+[i]+' img','src',item.img);
-                modelo.setDados('.painel__item'+[i]+' .descricao__nome',
+                modelo.setConteudo('.painel__item'+[i]+' .descricao__nome',
                     item.nome
                 );
-                modelo.setDados('.painel__item'+[i]+' .descricao__preco',
+                modelo.setConteudo('.painel__item'+[i]+' .descricao__preco',
                     item.preco
                 );
-                modelo.setDados(
+                modelo.setConteudo(
                     '.painel__item'+[i]+' .descricao__detalhe',
                     'ver detalhes'
                 ); 
@@ -88,14 +88,19 @@
                     return layout.cloneNode(true);
                 }
             
-                // alterar o nome da classe do primeiro elemento do modelo 
-                this.setClasse = function (classe) {
-                    modelo.setAttribute('class', classe);
+                // alterar o nome da classe de um elemento do modelo 
+                this.setClasse = function (classeDest,classe) {
+                    if(('.'+modelo.className)==classeDest) {
+                        modelo.setAttribute('class',classe);
+                    }
+                    else {
+                        modelo.querySelector(classeDest).setAttribute('class', classe);
+                    }
                 }
 
                 // alterar atributo do elmento
                 this.setAtributo = function(classe,atributo,valor) {
-                    modelo.querySelector(classe).setAtributo(atributo,valor);
+                    modelo.querySelector(classe).setAttribute(atributo,valor);
                 }
 
                 // adicionar conteudo ao modelo
@@ -140,6 +145,15 @@
                     var r = obterElemento(classe);
                     removerDoDocumento(classe);
                     return r;
+                }
+
+                addConteudo = function(classe,conteudo){
+                    if(('.'+modelo.className)==classe) {
+                        modelo.innerHTML = conteudo;
+                    }
+                    else {
+                        modelo.querySelector(classe).innerHTML = conteudo;
+                    }
                 }
 
                 if(classe!=null)
