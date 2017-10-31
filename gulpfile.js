@@ -30,7 +30,6 @@ gulp.task('browserSync',function(){
 });
 
 /** Tarefa de processamento de sass */
-
 gulp.task('sass',function(){
     return gulp.src('app/views/scss/**/*.scss')
         .pipe(sass())
@@ -49,7 +48,6 @@ gulp.task('copy',function(){
 });
 
 /** Desenvolvimento just-in-time */
-
 gulp.task('watch',['browserSync','sass'],function(){
     gulp.watch('app/views/scss/**/*.scss',['sass'])
     gulp.watch('app/views/*.html',browserSync.reload)
