@@ -82,6 +82,7 @@ function Modelo(classe) {
             }
         }
 
+
         function setTodasClasses(classeDest,classe) {
             if(('.'+estagio.className)==classeDest) {
                 estagio.setAttribute('class',classe);
