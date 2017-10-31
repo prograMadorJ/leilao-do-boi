@@ -84,7 +84,10 @@ function Modelo(classe) {
             if(('.'+estagio.className)==classeDest) {
                 estagio.setAttribute('class',classe);
             }
-            estagio.querySelectorAll(classeDest).setAttribute('class', classe);
+            estagio.querySelectorAll(classeDest)
+                .forEach(function(element) {
+                    element.querySelector(classeDest).setAttribute('class', classe);
+                });
         }
 
         function setAtributo(classe,atributo,valor) {
