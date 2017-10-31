@@ -1,9 +1,9 @@
 function Modelo(classe) {
     
-        // instancia variavel modelo como objeto html
-        var modelo = document.createElement('html');
-        var estagio = document.createElement('html');
-        var front = document.createElement('html');
+        // instancia variaveis
+        var modelo;
+        var estagio;
+        var front;
     
         this.prototype = Modelo.prototype;
 
@@ -164,6 +164,8 @@ function Modelo(classe) {
     modelo.novoEstagio();
 
     modelo.adicionarAoEstagio(modelo.getModelo(),'.painel__item','.painel');
+
+    modelo.setConteudo('.painel__item','TESTE');
 
     console.log(modelo.getEstagio());
 
