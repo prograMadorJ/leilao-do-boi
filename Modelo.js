@@ -88,7 +88,7 @@ function Modelo(classe) {
             }
             estagio.querySelectorAll(classeDest)
                 .forEach(function(element) {
-                    element.querySelector(classeDest).setAttribute('class', classe);
+                    element.setAttribute('class', classe);
                 });
         }
 
