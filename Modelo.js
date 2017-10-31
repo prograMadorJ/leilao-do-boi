@@ -21,9 +21,17 @@ function Modelo(classe) {
     
         // retorna estrutura html modelo
         this.getModelo = getModelo;
+
+        // retorna estrutura html estagio
+        this.getEstagio = getEstagio;
+
+        // retorna estrutura html front
+        this.getFront = getFront;
     
         // alterar o nome da classe de um elemento do modelo 
         this.setClasse = setClasse;
+
+        this.setTodasClasses = setTodasClasses;
 
         // alterar atributo do elmento
         this.setAtributo = setAtributo;
@@ -31,13 +39,14 @@ function Modelo(classe) {
         // adicionar conteudo ao modelo
         this.setConteudo = setConteudo;
     
+        this.adicionarAoEstagio = adicionarAoEstagio;
+
         // adicionar elemento ao front
         this.adicionarAoFront = adicionarAoFront;
     
         // adicionar o front ao documento
         this.adicionarFrontAoDocumento = adicionarFrontAoDocumento;
     
-
         function novoModelo() {
             modelo = document.createElement('html');
         }
@@ -54,6 +63,14 @@ function Modelo(classe) {
             return modelo.cloneNode(true);
         }
 
+        function getEstagio() {
+            return estagio.cloneNode(true);
+        }
+
+        function getFront() {
+            return front.cloneNode(true);
+        }
+
         function setClasse(classeDest,classe) {
             if(('.'+estagio.className)==classeDest) {
                 estagio.setAttribute('class',classe);
@@ -61,6 +78,13 @@ function Modelo(classe) {
             else {
                 estagio.querySelector(classeDest).setAttribute('class', classe);
             }
+        }
+
+        function setTodasClasses(classeDest,classe) {
+            if(('.'+estagio.className)==classeDest) {
+                estagio.setAttribute('class',classe);
+            }
+            estagio.querySelectorAll(classeDest).setAttribute('class', classe);
         }
 
         function setAtributo(classe,atributo,valor) {
@@ -73,6 +97,26 @@ function Modelo(classe) {
             }
             else {
                 estagio.querySelector(classe).innerHTML = conteudo;
+            }
+        }
+
+        function adicionarAoEstagio(elemento,classeElemento,classeDestino) {
+           
+            if(('.'+estagio.className)==classeElemento) {
+                if(('.'+elemento.className)==classeElemento) {
+                    estagio.append(elemento.cloneNode(true));
+                }
+                else {
+                    estagio.append(elemento.querySelector(classeElemento).cloneNode(true));
+                }
+            }
+            else {
+                if(('.'+elemento.className)==classeElemento) {
+                    estagio.querySelector(classeDestino).append(elemento.cloneNode(true));
+                }
+                else {
+                    estagio.querySelector(classeDestino).append(elemento.querySelector(classeElemento).cloneNode(true));
+                }    
             }
         }
 
@@ -106,10 +150,19 @@ function Modelo(classe) {
             this.setModelo(classe);
     }
 
-window.onload = function () {
+
+
+    window.onload = function () {
     
     var modelo = new Modelo('.painel');
 
+    modelo.novoEstagio();
 
-    console.log(modelo.getModelo());
-}
+    modelo.adicionarAoEstagio(modelo.getModelo(),'.painel__item','.painel');
+
+    modelo.setTodasClasses('.painel__item','painel__item1');
+
+
+    console.log(modelo.getEstagio());
+
+    }
