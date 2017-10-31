@@ -31,6 +31,7 @@ function Modelo(classe) {
         // alterar o nome da classe de um elemento do modelo 
         this.setClasse = setClasse;
 
+        // alterar o nome de varias classes
         this.setTodasClasses = setTodasClasses;
 
         // alterar atributo do elmento
