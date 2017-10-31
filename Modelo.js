@@ -40,6 +40,7 @@ function Modelo(classe) {
         // adicionar conteudo ao modelo
         this.setConteudo = setConteudo;
     
+        // adicionar conteudo do estagio
         this.adicionarAoEstagio = adicionarAoEstagio;
 
         // adicionar elemento ao front
