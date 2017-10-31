@@ -5,6 +5,8 @@ function Modelo(classe) {
         var estagio = document.createElement('html');
         var front = document.createElement('html');
     
+        this.prototype = Modelo.prototype;
+
         // cria um novo modelo
         this.novoModelo = novoModelo;
         
@@ -36,23 +38,23 @@ function Modelo(classe) {
         this.adicionarFrontAoDocumento = adicionarFrontAoDocumento;
     
 
-        novoModelo = function() {
+        function novoModelo() {
             modelo = document.createElement('html');
         }
 
-        novoEstagio = function() {
+        function novoEstagio() {
             estagio = modelo.cloneNode(true);
         }
 
-        setModelo = function(classe) {
+        function setModelo(classe) {
             modelo = extrairElemento(classe);
         }
 
-        getModelo = function() {
+        function getModelo() {
             return modelo.cloneNode(true);
         }
 
-        setClasse = function (classeDest,classe) {
+        function setClasse(classeDest,classe) {
             if(('.'+estagio.className)==classeDest) {
                 estagio.setAttribute('class',classe);
             }
@@ -61,11 +63,11 @@ function Modelo(classe) {
             }
         }
 
-        setAtributo = function(classe,atributo,valor) {
+        function setAtributo(classe,atributo,valor) {
             estagio.querySelector(classe).setAttribute(atributo,valor);
         }
 
-        setConteudo = function(classe,conteudo){
+        function setConteudo (classe,conteudo){
             if(('.'+estagio.className)==classe) {
                 estagio.innerHTML = conteudo;
             }
@@ -74,7 +76,7 @@ function Modelo(classe) {
             }
         }
 
-        adicionarAoFront = function (classeDestino, elemento, classeElemento) {
+        function adicionarAoFront (classeDestino, elemento, classeElemento) {
             if (('.' + elemento.className) == classeDestino) {
                 front.append(elemento.cloneNode(true));
             } else {
@@ -82,19 +84,19 @@ function Modelo(classe) {
             }
         }
     
-        adicionarFrontAoDocumento = function (classe) {
+        function adicionarFrontAoDocumento (classe) {
             document.querySelector(classe).append(front);
         }
     
-        removerDoDocumento = function (classe) {
+        var removerDoDocumento = function (classe) {
             document.querySelector(classe).remove();
         }
     
-        copiarElemento = function (classe) {
+        var copiarElemento = function (classe) {
             return document.querySelector(classe).cloneNode(true);
         }
 
-        extrairElemento = function (classe) {
+        var extrairElemento = function (classe) {
             var elemento = document.createElement('html');
             elemento.append(document.querySelector(classe));
             return elemento;
