@@ -165,9 +165,6 @@ function Modelo(classe) {
 
     modelo.adicionarAoEstagio(modelo.getModelo(),'.painel__item','.painel');
 
-    
-
-
     console.log(modelo.getEstagio());
 
     }
