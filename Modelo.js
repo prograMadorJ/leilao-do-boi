@@ -163,7 +163,7 @@ function Modelo(classe) {
 
     modelo.adicionarAoEstagio(modelo.getModelo(),'.painel__item','.painel');
 
-    modelo.setTodasClasses('.painel__item','painel__item1');
+    
 
 
     console.log(modelo.getEstagio());
